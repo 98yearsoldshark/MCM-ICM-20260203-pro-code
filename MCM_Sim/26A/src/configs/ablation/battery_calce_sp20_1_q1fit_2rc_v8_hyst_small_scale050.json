@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "0.1.0",
     "source": "CALCE UMD battery-data / SP20-1 low current OCV test (25C)",
-    "xlsx": "/Users/zhangyansong/Documents/MyProjects_zys/美赛/2026美赛资料/2026美国大学生建模比赛/⑥Python学习资料及常用模型算法代码/MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
+    "xlsx": "MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
     "notes_zh": "在 v7（diff_z + C1=500F）基础上，引入“小幅 OCV 迟滞 h(t)”用于刻画“同 SOC 下充/放电电压不同”的路径依赖：放电时 OCV_eff=OCV-M(SOC)*h 降低，充电时提高；休止时以时间常数衰减回 0。该机制可在不改动 2RC 主体结构的前提下：\n1) 让 17.7h 左右的放电脉冲更早跌破 3.3V（改善 TTE）；\n2) 同时抬高充电脉冲尖峰、加深放电脉冲尖峰（改善尖峰幅度）。",
     "derived_from": "battery_calce_sp20_1_q1fit_2rc_v8_hyst_small_v1.json",
     "diff_modeling_notes_zh": {

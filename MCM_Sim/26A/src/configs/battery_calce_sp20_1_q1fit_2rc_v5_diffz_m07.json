@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "0.1.0",
     "source": "CALCE UMD battery-data / SP20-1 low current OCV test (25C)",
-    "xlsx": "/Users/zhangyansong/Documents/MyProjects_zys/美赛/2026美赛资料/2026美国大学生建模比赛/⑥Python学习资料及常用模型算法代码/MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
+    "xlsx": "MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
     "notes_zh": "在 q1fit_2rc_v3 基础上启用扩散极化/慢恢复状态 z（diff_*），并对 diff_M_curve 做缩放（m_scale=0.70），仅引入电压偏移项（不启用 diff_R_curve），用于更好复现 12_2 数据在 22h 附近的“超深放电段 + 缓慢回弹平台”。",
     "derived_from": "battery_calce_sp20_1_q1fit_2rc_v3.json",
     "diff_modeling_notes_zh": {

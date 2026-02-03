@@ -1,6 +1,6 @@
 # Paper Heatmap Matching Report
 
-- output: `/Users/zhangyansong/Documents/MyProjects_zys/美赛/2026美赛资料/2026美国大学生建模比赛/⑥Python学习资料及常用模型算法代码/MCM_Sim/25A/src/runs/paper_match_20260125_152917`
+- output: `MCM_Sim/25A/src/runs/paper_match_20260125_152917`
 - trials_per_target: 600
 - top_k: 5
 

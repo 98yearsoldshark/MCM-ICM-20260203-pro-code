@@ -2,10 +2,10 @@
   "meta": {
     "schema_version": "0.1.0",
     "source": "CALCE UMD battery-data / SP20-1 low current OCV test (25C)",
-    "xlsx": "/Users/zhangyansong/Documents/MyProjects_zys/美赛/2026美赛资料/2026美国大学生建模比赛/⑥Python学习资料及常用模型算法代码/MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
+    "xlsx": "MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
     "notes_zh": "本配置由一份低电流放电数据拟合得到 OCV-SOC 曲线；R0/R1/C1/热/老化参数仍为名义值或占位，后续可继续校准。\n[ablation] 在 q1fit_2rc_v1 的基础上启用 diff_z 扩散极化状态；strict 口径下不使用观测电压门控（仅用 SOC/I 门控）。",
     "calibration_2rc_r0fixed_r1r2soc_tau_10_16seg": {
-      "source_xlsx": "/Users/zhangyansong/Documents/MyProjects_zys/美赛/2026美赛资料/2026美国大学生建模比赛/⑥Python学习资料及常用模型算法代码/MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/10_16_2015_Initial capacity_SP20-1.xlsx",
+      "source_xlsx": "MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/10_16_2015_Initial capacity_SP20-1.xlsx",
       "segment_steps_inclusive": [
         5,
         8

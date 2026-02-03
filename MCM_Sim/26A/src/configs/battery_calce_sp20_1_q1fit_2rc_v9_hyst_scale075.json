@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "0.1.0",
     "source": "CALCE UMD battery-data / SP20-1 low current OCV test (25C)",
-    "xlsx": "/Users/zhangyansong/Documents/MyProjects_zys/美赛/2026美赛资料/2026美国大学生建模比赛/⑥Python学习资料及常用模型算法代码/MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
+    "xlsx": "MCM_Sim/26A/data/calce-umd/extracted/battery-data/SP/11_5_2015_low current OCV test_SP20-1.xlsx",
     "notes_zh": "v9：在 v8 的基础上，对 hyst_M_curve 统一缩放 0.75（小型消融最优点），在不引入黑箱拟合的前提下同时改善两份 Incremental OCV 的 TTE 与尖峰/平台电压误差。\n- 关键：12_2 数据的 3.3V 首次跌破属于阈值事件（是否在该脉冲步触发），hyst 幅度过小会导致 TTE 跳变（延后约 2 小时）；scale=0.75 恰好让该处稳定触发且不过度提前。",
     "derived_from": "battery_calce_sp20_1_q1fit_2rc_v8_hyst_small_v1.json",
     "diff_modeling_notes_zh": {
