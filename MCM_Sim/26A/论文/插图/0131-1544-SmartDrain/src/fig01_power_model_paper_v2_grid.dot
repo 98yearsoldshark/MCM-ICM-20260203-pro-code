@@ -1,0 +1,117 @@
+digraph fig01_power_model_paper_v2_grid {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.25,
+    ranksep=0.55,
+    splines=true,
+    pad="0.18"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#F8FAFC",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.2,
+    margin="0.10,0.06"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.1,
+    arrowsize=0.9,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // 版本 v2：把左侧模块改成“2 列 x 4 行”的紧凑网格，减少“又高又长”的突兀感。
+
+  subgraph cluster_components {
+    label="Device power components";
+    color="#CBD5E1";
+    style="rounded,filled";
+    fillcolor="#F1F5F9";
+    fontcolor="#0F172A";
+
+    // Row 1: base + screen
+    p_base   [label=< <I>P</I><SUB>base</SUB> >,       fillcolor="#E2E8F0", group="r1"];
+    p_screen [label=< <I>P</I><SUB>screen</SUB>(t) >,  fillcolor="#DBEAFE", group="r1"];
+
+    // Row 2: cpu + gpu
+    p_cpu    [label=< <I>P</I><SUB>cpu</SUB>(t) >,     fillcolor="#DCFCE7", group="r2"];
+    p_gpu    [label=< <I>P</I><SUB>gpu</SUB>(t) >,     fillcolor="#DCFCE7", group="r2"];
+
+    // Row 3: net + gps
+    p_net    [label=< <I>P</I><SUB>net</SUB>(t) >,     fillcolor="#FFE4E6", group="r3"];
+    p_gps    [label=< <I>P</I><SUB>gps</SUB>(t) >,     fillcolor="#FFE4E6", group="r3"];
+
+    // Row 4: bg + int
+    p_bg     [label=< <I>P</I><SUB>bg</SUB>(t) >,      fillcolor="#FEF9C3", group="r4"];
+    p_int    [label=< <I>P</I><SUB>int</SUB>(t) >,     fillcolor="#FEF9C3", group="r4"];
+
+    // Two columns (left: base/cpu/net/bg; right: screen/gpu/gps/int)
+    {rank=same; p_base; p_cpu; p_net; p_bg;}
+    {rank=same; p_screen; p_gpu; p_gps; p_int;}
+
+    // Enforce left->right pairing per row (invisible).
+    p_base -> p_screen [style=invis];
+    p_cpu  -> p_gpu    [style=invis];
+    p_net  -> p_gps    [style=invis];
+    p_bg   -> p_int    [style=invis];
+
+    // Encourage consistent vertical ordering (invisible, no rank constraints).
+    p_base   -> p_cpu  -> p_net  -> p_bg  [style=invis, constraint=false, weight=10];
+    p_screen -> p_gpu  -> p_gps  -> p_int [style=invis, constraint=false, weight=10];
+  }
+
+  sum [
+    shape=circle,
+    style="filled",
+    fillcolor="#FFFFFF",
+    label=<&Sigma;>,
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=14,
+    penwidth=1.2,
+    width=0.38,
+    height=0.38,
+    fixedsize=true
+  ];
+
+  p_device [label=< <I>P</I><SUB>device</SUB>(t) >, fillcolor="#E0E7FF"];
+
+  // Connect all components to the summation node.
+  p_base   -> sum;
+  p_screen -> sum;
+  p_cpu    -> sum;
+  p_gpu    -> sum;
+  p_net    -> sum;
+  p_gps    -> sum;
+  p_bg     -> sum;
+  p_int    -> sum;
+
+  sum -> p_device [label="=" fontcolor="#64748B"];
+
+  pmic [label="PMIC", fillcolor="#FFFFFF"];
+
+  eta [
+    shape=note,
+    style="filled",
+    fillcolor="#FFFFFF",
+    color="#475569",
+    fontcolor="#0F172A",
+    label=< <I>&eta;</I><SUB>PMIC</SUB> = <I>&eta;</I><SUB>0</SUB> >
+  ];
+
+  p_batt [label=< <I>P</I><SUB>batt</SUB>(t) >, fillcolor="#E0F2FE"];
+
+  p_device -> pmic [label=< <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT> > fontcolor="#64748B"];
+  eta -> pmic [style=dashed, arrowhead=none, color="#94A3B8"];
+  pmic -> p_batt;
+}
+

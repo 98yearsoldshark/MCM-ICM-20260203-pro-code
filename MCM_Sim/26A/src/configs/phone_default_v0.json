@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "notes_zh": "通用默认电池参数（用于 Model-0 快速跑通）。后续拿到真实数据后，应进行校准/替换。"
+  },
+  "battery": {
+    "capacity_mAh": 4000,
+    "nominal_voltage_V": 3.85,
+    "energy_Wh": 15.4,
+    "soc_min": 0.02,
+    "soc0_default": 1.0
+  }
+}
+

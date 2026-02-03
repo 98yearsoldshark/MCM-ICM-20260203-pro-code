@@ -1,0 +1,41 @@
+{
+  "targets": [
+    {
+      "id": "paper_fig2_overall",
+      "desc": "论文 图2：二维热力图（整体样本）",
+      "image_path": "MCM_Sim/25A/论文/preprocessed/2025A_GuoTeacher/001/images/2f469d4cd9675f754d24b9450cc1f653140e770ab0908c18969667ffb5af4040.jpg",
+      "crop_frac": { "left": 0.14, "right": 0.95, "top": 0.06, "bottom": 0.88 }
+    },
+    {
+      "id": "paper_fig3_up",
+      "desc": "论文 图3：上楼样本热力图",
+      "image_path": "MCM_Sim/25A/论文/preprocessed/2025A_GuoTeacher/001/images/ad46fc86c328f5029290f106cd732edd5adb424a713f2b268e488341994cde12.jpg",
+      "crop_frac": { "left": 0.14, "right": 0.95, "top": 0.06, "bottom": 0.90 }
+    },
+    {
+      "id": "paper_fig3_down",
+      "desc": "论文 图3：下楼样本热力图",
+      "image_path": "MCM_Sim/25A/论文/preprocessed/2025A_GuoTeacher/001/images/34690304d23f842ef65c0a1666547a5fd2fce1947ddfbb7e03284cbf6c37d173.jpg",
+      "crop_frac": { "left": 0.14, "right": 0.95, "top": 0.06, "bottom": 0.90 }
+    },
+    {
+      "id": "paper_fig12_partial_repair",
+      "desc": "论文 图12：部分翻新的台阶热力图",
+      "image_path": "MCM_Sim/25A/论文/preprocessed/2025A_GuoTeacher/002/images/3f391957bb5ce3e871c7e28a20c4ef0d71c4fbaf41084861e08b98001d9d2b5c.jpg",
+      "crop_frac": { "left": 0.12, "right": 0.96, "top": 0.08, "bottom": 0.92 }
+    },
+    {
+      "id": "paper_fig15_short_term_many",
+      "desc": "论文 图15(1)：短时间内大量人员使用",
+      "image_path": "MCM_Sim/25A/论文/preprocessed/2025A_GuoTeacher/002/images/b94d0586b00aa3f83664b94accb25a0706009835fa7a0cc7e5a8321ab5dfdd47.jpg",
+      "crop_frac": { "left": 0.14, "right": 0.95, "top": 0.06, "bottom": 0.86 }
+    },
+    {
+      "id": "paper_fig15_long_term_few",
+      "desc": "论文 图15(2)：长时间内少量人员使用",
+      "image_path": "MCM_Sim/25A/论文/preprocessed/2025A_GuoTeacher/002/images/cdc3b709dc13d290f0a3ef0ab0d436bf2e17450ce4b3d0a6804bc61ab26f2dc4.jpg",
+      "crop_frac": { "left": 0.14, "right": 0.95, "top": 0.06, "bottom": 0.86 }
+    }
+  ]
+}
+

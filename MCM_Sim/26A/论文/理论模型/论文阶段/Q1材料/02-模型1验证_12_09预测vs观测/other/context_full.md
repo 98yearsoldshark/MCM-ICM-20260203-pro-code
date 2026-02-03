@@ -1,0 +1,28 @@
+# 插入建议
+
+- 建议插入位置：`MCM_Sim/26A/论文/相关文本信息/no8/_0131-1507-论文.md` 的 **4.3 The Solution of Model 1** 中，新增一个小段标题例如 *"Battery-side validation on open data (CALCE)"*。
+- 用途：用公开数据验证"给定电流 I(t)，我们的连续时间 2RC ECM 能否预测端电压 V(t)"；并在同图给出预测/观测 TTE（电压截止触发）。
+
+# 可直接粘贴到论文的文本（中文）
+
+我们使用 CALCE（UMD）公开数据中 SP20-1 电芯的 Incremental OCV 实验对电池侧连续时间模型进行验证。该协议在电流脉冲与静置段之间交替，使端电压呈现典型的"阶梯平台 + 尖峰 + 松弛恢复"结构。给定测得电流 \(I(t)\)，我们在连续时间上仿真 2RC ECM，并将预测端电压 \(V_{\mathrm{pred}}(t)\) 与观测 \(V(t)\) 对比。
+
+（在此插入图 Q1-02）
+
+图 Q1-02：CALCE Incremental OCV 验证（12_09）。蓝线为观测端电压，红线为 Model-1 预测（2RC ECM）。灰色水平虚线为截止电压 \(V_{\mathrm{cut}}=3.30\text{ V}\)；竖虚线给出以首次跌破 \(V_{\mathrm{cut}}\) 定义的观测/预测耗尽时间（TTE）。
+
+本次实验中，模型总体电压 RMSE 为 8.38 mV（MAE 6.44 mV），TTE 误差为 +75.8 s（+0.106%）。模型对平台电压（由 \(\mathrm{OCV}(\mathrm{SOC})\) 与慢支路主导）以及脉冲最低点（由欧姆压降与快支路主导）均能同时贴合，说明多时间尺度内部状态对于复现真实放电动态是必要的。
+
+可选（附录）：`figure_zoom.png` 为最深尖峰附近局部放大，用于检查"进入尖峰/回弹"的形态。
+
+# 可直接粘贴到论文的文本（英文）
+
+We validate the battery-side continuous-time model using the CALCE (UMD) Incremental OCV experiment for the SP20-1 cell. This protocol alternates current pulses and rest periods, producing the characteristic "stepwise plateaus + sharp spikes + relaxation recovery" voltage pattern. Given the measured current \(I(t)\), we simulate the 2RC ECM in continuous time and compare the predicted terminal voltage \(V_{\mathrm{pred}}(t)\) against the measured \(V(t)\).
+
+(Insert Figure Q1-02 here.)
+
+Figure Q1-02: CALCE Incremental OCV validation (12_09). Blue: measured terminal voltage; red: Model-1 prediction (2RC ECM). The horizontal dashed line is the cut-off voltage \(V_{\mathrm{cut}}=3.30\text{ V}\); the vertical dotted lines indicate the observed and predicted time-to-empty (TTE) defined by the first crossing of \(V_{\mathrm{cut}}\).
+
+On this run, the model achieves an overall voltage RMSE of 8.38 mV (MAE 6.44 mV) and a TTE error of +75.8 s (+0.106%). The agreement holds both on plateau levels (captured by \(\mathrm{OCV}(\mathrm{SOC})\) and the slow branch) and on pulse minima (dominated by the ohmic drop and the fast branch), indicating that the multi-time-scale internal states are necessary for reproducing realistic discharge dynamics.
+
+Optional (appendix): `figure_zoom.png` provides a local zoom around the deepest spike to assess the spike entry/rebound shape.

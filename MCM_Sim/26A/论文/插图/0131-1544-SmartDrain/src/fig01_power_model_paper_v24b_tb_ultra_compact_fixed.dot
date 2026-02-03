@@ -1,0 +1,61 @@
+digraph fig01_power_model_paper_v24b_tb_ultra_compact_fixed {
+  graph [
+    rankdir=TB,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.16,
+    ranksep=0.18,
+    splines=true,
+    // v24 曾出现圆角框被裁切：这里增加 pad 让边界留白更足。
+    pad="0.08"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=0.95,
+    margin="0.04,0.02"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=0.95,
+    arrowsize=0.82,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER"><I>P</I><SUB>base</SUB></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER"><I>P</I><SUB>screen</SUB></TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>cpu</SUB></TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>gpu</SUB></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>net</SUB></TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>gps</SUB></TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>bg</SUB></TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>int</SUB></TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  p_device [fillcolor="#E0E7FF", label=< <I>P</I><SUB>device</SUB> >];
+  p_batt   [fillcolor="#E0F2FE", label=< <I>P</I><SUB>batt</SUB> >];
+
+  { rank=same; p_device; p_batt; }
+
+  components -> p_device [label=< <FONT POINT-SIZE="10">&Sigma;</FONT> > fontcolor="#64748B"];
+  p_device -> p_batt [label=< <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>0</SUB></FONT> > fontcolor="#64748B"];
+}
+

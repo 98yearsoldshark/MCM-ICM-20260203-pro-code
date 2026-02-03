@@ -1,0 +1,31 @@
+# 插入建议
+
+- 建议插入位置：与 `13-Q2-解释性轨迹_待机` 成对出现，作为 **Q2.14**，用于对照解释“为什么高负载场景 TTE 极短/更易提前关机”。
+- 用途：把“算力主导 + 温升 + 欠压边界”三条链路用一张图讲清楚，增强模型解释力。
+
+# 可直接粘贴到论文的文本（中文）
+
+## Q2.14 解释性轨迹：游戏（高 CPU/GPU 负载）场景的连续时间演化
+
+图 Q2-14 展示了在 $SOC_0=1.0$、游戏（高 CPU/GPU 负载）场景下的代表性轨迹。
+
+（在此插入图 Q2-14）
+
+图 Q2-14：游戏场景下的代表性轨迹（SOC、端电压、温度、总功耗）。
+
+相较于待机，SOC 在游戏场景下下降显著更快，因为持续的算力负载占据了主要功耗。温度快速上升并达到更高的稳态水平，反映了电损耗与热动力学的耦合。更关键的是，端电压更早接近欠压截止阈值，因此关机往往由欠压边界主导而非“缓慢耗尽”。这也解释了为何在高负载场景下，哪怕是功耗的小幅额外增加（例如后台/网络交互触发）也可能导致不成比例的 TTE 缩短。
+
+（这是讲解内容，论文中可删除）  
+这张图配合 drivers 矩阵很好写：游戏场景的主 driver 是 CPU/GPU（去掉它 $\Delta TTE$ 最大），而屏幕/网络的边际影响更小；同时温度上升会通过内阻/效率反馈让 $V_{term}$ 更容易触底，从而出现“非线性提前关机”。  
+
+# 可直接粘贴到论文的文本（英文）
+
+## Q2.14 Mechanistic explanation via trajectories (gaming)
+
+Figure Q2-14 shows a representative trajectory under gaming (high CPU/GPU load) at $SOC_0=1.0$.
+
+(Insert Figure Q2-14 here.)
+
+Figure Q2-14: Example trajectories under gaming (SOC, terminal voltage, temperature, and total power).
+
+Compared with standby, the SOC declines much faster because the sustained compute load dominates the power draw. The temperature rises quickly and reaches a higher steady level, reflecting the coupling between electrical losses and thermal dynamics. Importantly, the terminal voltage approaches the cutoff threshold much earlier, so shutdown is governed by the undervoltage boundary rather than gradual exhaustion. This illustrates why small increases in high-load power (e.g., due to background/network interaction) can cause disproportionate reductions in TTE.

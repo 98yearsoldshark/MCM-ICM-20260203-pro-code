@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "notes_zh": "用于 Q2 机理展示（更强对比版）：在 v1 基础上进一步强化低 SOC 区间的 R0 上升幅度，用于让“极低电量加速掉电/提前欠压关机”的曲线特征更直观。该文件不替换默认配置，只作为论文图/消融对照的备选。"
+  },
+  "battery": {
+    "capacity_mAh": 4000,
+    "nominal_voltage_V": 3.85,
+    "energy_Wh": 15.4,
+    "soc_min": 0.02,
+    "soc0_default": 1.0,
+    "ecm": {
+      "V_cut_V": 3.30,
+      "R0_ohm": 0.08,
+      "R1_ohm": 0.02,
+      "C1_F": 2000.0,
+      "ocv_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [0.0, 3.00],
+          [0.10, 3.60],
+          [0.90, 4.00],
+          [1.0, 4.20]
+        ]
+      },
+      "R0_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [0.0, 0.35],
+          [0.05, 0.28],
+          [0.10, 0.20],
+          [0.20, 0.13],
+          [0.50, 0.09],
+          [1.0, 0.08]
+        ]
+      }
+    },
+    "thermal": {
+      "T_ref_C": 25.0,
+      "T0_C": 25.0,
+      "C_th_J_per_K": 250.0,
+      "R_th_K_per_W": 2.5,
+      "eta_device_heat": 0.95,
+      "r0_temp_coeff_per_C": 0.015,
+      "r1_temp_coeff_per_C": 0.015,
+      "capacity_temp_coeff_per_C": 0.002,
+      "min_temp_C": -10.0,
+      "max_temp_C": 70.0
+    },
+    "aging": {
+      "cap_fade_per_Ah": 0.0,
+      "r0_growth_per_Ah": 0.0,
+      "r1_growth_per_Ah": 0.0,
+      "aging_q10_cycle": 2.0,
+
+      "cap_fade_per_day": 0.0,
+      "r0_growth_per_day": 0.0,
+      "aging_q10_calendar": 2.0,
+      "soc_calendar_k": 0.0,
+      "soc_calendar_ref": 0.5,
+
+      "cap_loss_max_frac": 0.5,
+      "r_growth_max_frac": 2.0
+    }
+  }
+}
+

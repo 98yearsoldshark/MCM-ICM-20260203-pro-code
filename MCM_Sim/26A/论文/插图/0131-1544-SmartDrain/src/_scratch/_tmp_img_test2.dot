@@ -1,0 +1,19 @@
+digraph G {
+  graph [bgcolor="transparent"];
+  node [shape=box, style="rounded,filled", fillcolor="#ffffff", color="#334155", fontname="Helvetica"];
+
+  a [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+      <TR>
+        <TD>
+          <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+            <TR>
+              <TD><IMG SRC="assets/icons/phone_24.png"/></TD>
+              <TD><FONT POINT-SIZE="12"><B>Device power</B></FONT></TD>
+            </TR>
+          </TABLE>
+        </TD>
+      </TR>
+    </TABLE>
+  >];
+}

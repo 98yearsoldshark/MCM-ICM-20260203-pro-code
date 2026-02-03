@@ -1,0 +1,97 @@
+digraph fig01_power_model_paper_v4_list {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.35,
+    ranksep=0.60,
+    splines=true,
+    pad="0.18"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.2,
+    margin="0.10,0.08"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.1,
+    arrowsize=0.9,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // 版本 v4：把左侧 8 个模块“收纳”为一个列表卡片（更像信息卡，而不是高柱状列表）。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="6" CELLPADDING="6">
+        <TR>
+          <TD COLSPAN="2" ALIGN="LEFT"><B>Device power components</B></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER"><I>P</I><SUB>base</SUB></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER"><I>P</I><SUB>screen</SUB>(t)</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>cpu</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>gpu</SUB>(t)</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>net</SUB>(t)</TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>gps</SUB>(t)</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>bg</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>int</SUB>(t)</TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  sum [
+    shape=circle,
+    style="filled",
+    fillcolor="#FFFFFF",
+    label=<&Sigma;>,
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=14,
+    penwidth=1.2,
+    width=0.38,
+    height=0.38,
+    fixedsize=true
+  ];
+
+  p_device [label=< <I>P</I><SUB>device</SUB>(t) >, fillcolor="#E0E7FF"];
+
+  components -> sum;
+  sum -> p_device [label="=" fontcolor="#64748B"];
+
+  pmic [label="PMIC", fillcolor="#FFFFFF"];
+
+  eta [
+    shape=note,
+    style="filled",
+    fillcolor="#FFFFFF",
+    color="#475569",
+    fontcolor="#0F172A",
+    label=< <I>&eta;</I><SUB>PMIC</SUB> = <I>&eta;</I><SUB>0</SUB> >
+  ];
+
+  p_batt [label=< <I>P</I><SUB>batt</SUB>(t) >, fillcolor="#E0F2FE"];
+
+  p_device -> pmic [label=< <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT> > fontcolor="#64748B"];
+  eta -> pmic [style=dashed, arrowhead=none, color="#94A3B8"];
+  pmic -> p_batt;
+}
+

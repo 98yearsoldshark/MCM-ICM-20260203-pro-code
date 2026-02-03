@@ -1,0 +1,2 @@
+n_phone_tests,n_states,n_cells,replicates,dt_s,frac_usage_phone,frac_aging_state,frac_interaction,frac_seed_within
+24,6,144,30,10.0,0.9199367690239102,0.06405976725106227,0.01596531983537038,3.8143889657157145e-05

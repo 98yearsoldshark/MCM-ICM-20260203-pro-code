@@ -1,0 +1,20 @@
+# 可选依赖：按需安装
+
+# 不平衡采样
+imbalanced-learn
+
+# 中文分词
+jieba
+
+# 强力集成模型
+xgboost
+lightgbm
+
+# 图像读取（多数环境已有；若缺失可装）
+pillow
+
+# 二次规划专用求解器（可选；quadratic_programming.py 可用）
+cvxopt
+
+# 深度学习（可选；cnn_digits_optional.py 可用，体积较大）
+tensorflow

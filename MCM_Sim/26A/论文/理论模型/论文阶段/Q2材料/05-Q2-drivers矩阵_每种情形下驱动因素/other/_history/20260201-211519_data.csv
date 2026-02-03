@@ -1,0 +1,43 @@
+scenario_id,scenario_title_zh,component_id,title_zh,mean_delta_h,n
+S0_standby,待机/轻后台,no_background_total,去掉后台功耗（基线+唤醒）,60.60216235892981,50
+S0_standby,待机/轻后台,no_base,去掉基础功耗,24.602277209143075,50
+S0_standby,待机/轻后台,no_radio,去掉无线功耗（状态+数据）,10.131552060125086,50
+S0_standby,待机/轻后台,no_cpu_gpu,去掉 CPU/GPU 前台功耗,7.764403170774496,50
+S0_standby,待机/轻后台,no_screen,去掉屏幕功耗,0.7508388692679381,50
+S0_standby,待机/轻后台,no_interaction,去掉交互项（协同作用）,0.0248085820775997,50
+S0_standby,待机/轻后台,no_gps,去掉 GPS 功耗,0.0,50
+S1_video,视频播放/视频流,no_radio,去掉无线功耗（状态+数据）,4.638189817256046,50
+S1_video,视频播放/视频流,no_cpu_gpu,去掉 CPU/GPU 前台功耗,3.747048882504667,50
+S1_video,视频播放/视频流,no_screen,去掉屏幕功耗,2.9044686270225917,50
+S1_video,视频播放/视频流,no_interaction,去掉交互项（协同作用）,1.178366468306845,50
+S1_video,视频播放/视频流,no_background_total,去掉后台功耗（基线+唤醒）,0.8886301826733859,50
+S1_video,视频播放/视频流,no_base,去掉基础功耗,0.5022722889046305,50
+S1_video,视频播放/视频流,no_gps,去掉 GPS 功耗,0.0,50
+S2_navigation,导航（GPS + 地图数据）,no_cpu_gpu,去掉 CPU/GPU 前台功耗,4.592010404196031,50
+S2_navigation,导航（GPS + 地图数据）,no_screen,去掉屏幕功耗,2.5248319046162795,50
+S2_navigation,导航（GPS + 地图数据）,no_radio,去掉无线功耗（状态+数据）,1.1412466843517293,50
+S2_navigation,导航（GPS + 地图数据）,no_gps,去掉 GPS 功耗,0.9272047194179888,50
+S2_navigation,导航（GPS + 地图数据）,no_background_total,去掉后台功耗（基线+唤醒）,0.5069968936902872,50
+S2_navigation,导航（GPS + 地图数据）,no_interaction,去掉交互项（协同作用）,0.4773909426789574,50
+S2_navigation,导航（GPS + 地图数据）,no_base,去掉基础功耗,0.2619067601983451,50
+S3_gaming,游戏（高 CPU/GPU 负载）,no_cpu_gpu,去掉 CPU/GPU 前台功耗,20.32823230746112,50
+S3_gaming,游戏（高 CPU/GPU 负载）,no_screen,去掉屏幕功耗,0.2766742885080469,50
+S3_gaming,游戏（高 CPU/GPU 负载）,no_background_total,去掉后台功耗（基线+唤醒）,0.1105053731745341,50
+S3_gaming,游戏（高 CPU/GPU 负载）,no_interaction,去掉交互项（协同作用）,0.0949405092640712,50
+S3_gaming,游戏（高 CPU/GPU 负载）,no_base,去掉基础功耗,0.0526704468356757,50
+S3_gaming,游戏（高 CPU/GPU 负载）,no_radio,去掉无线功耗（状态+数据）,0.0258702480251564,50
+S3_gaming,游戏（高 CPU/GPU 负载）,no_gps,去掉 GPS 功耗,0.0,50
+S4_mixed_day,混合使用（标准一天）,no_background_total,去掉后台功耗（基线+唤醒）,13.77195759776299,50
+S4_mixed_day,混合使用（标准一天）,no_radio,去掉无线功耗（状态+数据）,9.995923151357438,50
+S4_mixed_day,混合使用（标准一天）,no_cpu_gpu,去掉 CPU/GPU 前台功耗,9.635067101695888,50
+S4_mixed_day,混合使用（标准一天）,no_base,去掉基础功耗,9.173415693719852,50
+S4_mixed_day,混合使用（标准一天）,no_screen,去掉屏幕功耗,6.20674897580543,50
+S4_mixed_day,混合使用（标准一天）,no_interaction,去掉交互项（协同作用）,2.047975258954054,50
+S4_mixed_day,混合使用（标准一天）,no_gps,去掉 GPS 功耗,0.0,50
+S5_burst_recovery,高负载→休止：恢复效应演示,no_cpu_gpu,去掉 CPU/GPU 前台功耗,36.11601903368298,50
+S5_burst_recovery,高负载→休止：恢复效应演示,no_background_total,去掉后台功耗（基线+唤醒）,1.1877692313742358,50
+S5_burst_recovery,高负载→休止：恢复效应演示,no_screen,去掉屏幕功耗,1.139596823820981,50
+S5_burst_recovery,高负载→休止：恢复效应演示,no_base,去掉基础功耗,0.5787631183198012,50
+S5_burst_recovery,高负载→休止：恢复效应演示,no_radio,去掉无线功耗（状态+数据）,0.5030134449086155,50
+S5_burst_recovery,高负载→休止：恢复效应演示,no_interaction,去掉交互项（协同作用）,0.5008865834042419,50
+S5_burst_recovery,高负载→休止：恢复效应演示,no_gps,去掉 GPS 功耗,0.0,50

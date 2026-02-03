@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "notes_zh": "参量估计建议版：基于 AndroWatts aggregated.csv 拟合得到屏幕/CPU/GPU 的线性系数，用作 Model-0 的可解释初值。"
+  },
+  "base_W": 0.25,
+  "screen": {
+    "P0_W": 0.1461994687300714,
+    "k_W_per_nit": 0.0007618856985895
+  },
+  "cpu": {
+    "k_W": 2.889355522430016
+  },
+  "gpu": {
+    "k_W": 0.3721867451845003
+  },
+  "gps": {
+    "P_W": 0.2
+  },
+  "background_level_W": {
+    "low": 0.05,
+    "medium": 0.15,
+    "high": 0.3
+  },
+  "signal_multiplier": {
+    "good": 1.0,
+    "poor": 1.8
+  },
+  "radio_activity_W": {
+    "wifi": {
+      "idle": 0.1,
+      "browse": 0.3,
+      "video": 0.6,
+      "nav": 0.4,
+      "game": 0.2,
+      "voice": 0.1
+    },
+    "lte": {
+      "idle": 0.2,
+      "browse": 0.8,
+      "video": 1.2,
+      "nav": 1.0,
+      "game": 0.3,
+      "voice": 0.7
+    },
+    "5g": {
+      "idle": 0.25,
+      "browse": 1.0,
+      "video": 1.5,
+      "nav": 1.2,
+      "game": 0.4,
+      "voice": 0.8
+    }
+  }
+}

@@ -1,0 +1,7 @@
+scenario_id,title_zh,tte_model0_h,tte_model1_h,delta_h,status_model0,status_model1
+S0_standby,待机/轻后台,33.53777777777778,32.033327080528245,-1.5044506972495313,depleted,cutoff
+S1_video,视频播放/视频流,6.938850574712644,6.494760041487763,-0.44409053322488123,depleted,cutoff
+S2_navigation,导航（GPS + 地图数据）,4.051543624161074,3.7220141662381017,-0.32952945792297195,depleted,cutoff
+S3_gaming,游戏（高 CPU/GPU 负载）,2.647719298245614,2.3733499809636642,-0.2743693172819497,depleted,cutoff
+S4_mixed_day,混合使用（标准一天）,24.2225,22.97622059101967,-1.2462794089803317,depleted,cutoff
+S5_burst_recovery,高负载→休止：恢复效应演示,8.091476793248946,7.3767858009791505,-0.7146909922697953,depleted,cutoff

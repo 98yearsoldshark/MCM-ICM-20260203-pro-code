@@ -1,0 +1,167 @@
+digraph fig01_power_model_paper_final_icons {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.20,
+    ranksep=0.38,
+    splines=true,
+    pad="0.10"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.1,
+    margin="0.06,0.04"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // 最终版（paper）：用户选定 v9 版式 + 小图标增强语义提示。
+  // 说明：Graphviz 的 <IMG> 尺寸控制在不同版本差异较大，因此这里使用预先生成的 24px PNG 图标。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3" CELLPADDING="4">
+        <TR>
+          <TD COLSPAN="2" ALIGN="LEFT">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/phone_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><B>Device power</B></FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/bolt_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>base</SUB></FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/screen_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>screen</SUB>(t)</FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/chip_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>cpu</SUB>(t)</FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/chip_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>gpu</SUB>(t)</FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/wifi_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>net</SUB>(t)</FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/gps_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>gps</SUB>(t)</FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/layers_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>bg</SUB>(t)</FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/tap_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><I>P</I><SUB>int</SUB>(t)</FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  sum [
+    shape=circle,
+    style="filled",
+    fillcolor="#FFFFFF",
+    label=<&Sigma;>,
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=14,
+    penwidth=1.1,
+    width=0.36,
+    height=0.36,
+    fixedsize=true
+  ];
+
+  p_device [label=< <I>P</I><SUB>device</SUB>(t) >, fillcolor="#E0E7FF"];
+
+  pmic [
+    fillcolor="#FFFFFF",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3">
+        <TR><TD><B>PMIC</B></TD></TR>
+        <TR><TD><FONT POINT-SIZE="10"><I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB></FONT></TD></TR>
+      </TABLE>
+    >
+  ];
+
+  p_batt [
+    fillcolor="#E0F2FE",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR>
+          <TD><IMG SRC="assets/icons/battery_50.png"/></TD>
+          <TD><FONT POINT-SIZE="12"><I>P</I><SUB>batt</SUB>(t)</FONT></TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  components -> sum;
+  sum -> p_device [label="=" fontcolor="#64748B"];
+  p_device -> pmic [label=< <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT> > fontcolor="#64748B"];
+  pmic -> p_batt;
+}

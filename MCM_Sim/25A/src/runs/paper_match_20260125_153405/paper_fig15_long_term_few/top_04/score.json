@@ -1,0 +1,11 @@
+{
+  "trial": 459,
+  "target_id": "paper_fig15_long_term_few",
+  "target_desc": "论文 图15(2)：长时间内少量人员使用",
+  "score": 0.574177496373499,
+  "corr": 0.587521786133698,
+  "center_dist": 0.0381265421719972,
+  "grad_mean_paper": 0.02076227565172977,
+  "grad_mean_sim": 0.004476950509645978,
+  "grad_ratio_sim_over_paper": 0.21562908540196501
+}

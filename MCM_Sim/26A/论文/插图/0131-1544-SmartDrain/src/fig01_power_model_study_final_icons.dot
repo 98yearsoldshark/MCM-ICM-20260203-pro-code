@@ -1,0 +1,152 @@
+digraph fig01_power_model_study_final_icons {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="PingFang SC",
+    fontsize=12,
+    nodesep=0.20,
+    ranksep=0.38,
+    splines=true,
+    pad="0.10"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=12,
+    penwidth=1.1,
+    margin="0.06,0.04"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="PingFang SC",
+    fontsize=11
+  ];
+
+  // 最终版（study）：在 v9 结构上加入小图标，帮助读者快速“扫懂”能量/功率流向。
+  // 说明：图标使用预先生成的 24px PNG（避免 Graphviz <IMG> 尺寸属性兼容性问题）。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3" CELLPADDING="4">
+        <TR>
+          <TD COLSPAN="2" ALIGN="LEFT">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR>
+                <TD><IMG SRC="assets/icons/phone_50.png"/></TD>
+                <TD><FONT POINT-SIZE="12"><B>设备功耗（模块列表）</B></FONT></TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/bolt_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">基础功耗<BR/><I>P</I><SUB>base</SUB></TD></TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/screen_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">屏幕<BR/><I>P</I><SUB>screen</SUB>(t)</TD></TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/chip_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">CPU<BR/><I>P</I><SUB>cpu</SUB>(t)</TD></TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/chip_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">GPU<BR/><I>P</I><SUB>gpu</SUB>(t)</TD></TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/wifi_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">通信<BR/><I>P</I><SUB>net</SUB>(t)</TD></TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/gps_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">定位<BR/><I>P</I><SUB>gps</SUB>(t)</TD></TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/layers_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">后台<BR/><I>P</I><SUB>bg</SUB>(t)</TD></TR>
+            </TABLE>
+          </TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="CENTER"><IMG SRC="assets/icons/tap_50.png"/></TD></TR>
+              <TR><TD ALIGN="CENTER">交互<BR/><I>P</I><SUB>int</SUB>(t)</TD></TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  sum [
+    shape=circle,
+    style="filled",
+    fillcolor="#FFFFFF",
+    label=<&Sigma;>,
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=14,
+    penwidth=1.1,
+    width=0.36,
+    height=0.36,
+    fixedsize=true
+  ];
+
+  p_device [fillcolor="#E0E7FF", label=< <B>设备总功耗</B><BR/><I>P</I><SUB>device</SUB>(t) >];
+
+  pmic [
+    fillcolor="#FFFFFF",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3">
+        <TR><TD><B>PMIC</B></TD></TR>
+        <TR><TD><FONT POINT-SIZE="10">效率：<I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB></FONT></TD></TR>
+        <TR><TD><FONT POINT-SIZE="10">建议：0.90–0.95</FONT></TD></TR>
+      </TABLE>
+    >
+  ];
+
+  p_batt [
+    fillcolor="#E0F2FE",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR>
+          <TD><IMG SRC="assets/icons/battery_50.png"/></TD>
+          <TD><FONT POINT-SIZE="12"><B>电池端功率</B><BR/><I>P</I><SUB>batt</SUB>(t)</FONT></TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  components -> sum;
+  sum -> p_device [label="等于" fontcolor="#64748B"];
+  p_device -> pmic [label="除以效率" fontcolor="#64748B"];
+  pmic -> p_batt;
+}

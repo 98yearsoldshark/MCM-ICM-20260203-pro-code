@@ -1,0 +1,53 @@
+{
+  "random_seed": 1556735840,
+  "surface": {
+    "type": "rect_height_field",
+    "width_m": 1.2,
+    "depth_m": 0.5,
+    "cell_m": 0.005
+  },
+  "traffic": {
+    "total_contacts": 9307382,
+    "up_ratio": 1.0
+  },
+  "contact": {
+    "center_distribution": {
+      "type": "gmm_separable",
+      "lanes": [
+        {
+          "mu_x_frac": 0.5189336359062879,
+          "sigma_x_m": 0.13124362816489407,
+          "weight": 1.0
+        }
+      ],
+      "mu_y_up_frac": 0.81583372879453,
+      "mu_y_down_frac": 0.8670002198335368,
+      "sigma_y_m": 0.10511166195647298
+    },
+    "footprint_kernel": {
+      "type": "elliptical_gaussian",
+      "sigma_x_m": 0.07768598819272449,
+      "sigma_y_m": 0.11532056824105197,
+      "size_m": 0.41941171598833016
+    },
+    "edge_scuff": {
+      "enabled": true,
+      "band_m": 0.03223808234651496,
+      "fraction_of_contacts": 0.05603543706900632,
+      "kernel": {
+        "type": "elliptical_gaussian",
+        "sigma_x_m": 0.05241223081166252,
+        "sigma_y_m": 0.02347455346337645,
+        "size_m": 0.1764632134769621
+      }
+    },
+    "sampling": {
+      "method": "poisson"
+    }
+  },
+  "wear": {
+    "law": "archard_like",
+    "wear_per_contact_peak_mm": 1e-07,
+    "edge_scuff_multiplier": 2.1593492273927044
+  }
+}

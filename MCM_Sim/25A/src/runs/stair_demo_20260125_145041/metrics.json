@@ -1,0 +1,24 @@
+{
+  "grid": {
+    "width_m": 1.2,
+    "depth_m": 0.3,
+    "cell_m": 0.005,
+    "nx": 240,
+    "ny": 60
+  },
+  "wear_depth_mm": {
+    "max": 0.3878397854299687,
+    "mean": 0.058186933847382105
+  },
+  "volume_loss": {
+    "m3": 2.094729618505756e-05,
+    "liters": 0.02094729618505756
+  },
+  "area_fraction_ge_0p2_max": 0.29118055555555555,
+  "traffic_summary": {
+    "n_days": 1095,
+    "cum_contacts": 7262643,
+    "mean_daily_contacts_simulated": 6632.550684931507,
+    "up_ratio_empirical": 0.49965694307155123
+  }
+}

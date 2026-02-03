@@ -1,0 +1,13 @@
+{
+  "cap_scale_a": 0.9,
+  "cap_scale_b": 1.1,
+  "p_log_sigma": 0.12,
+  "p_scale_min": 0.7,
+  "p_scale_max": 1.4,
+  "r_log_sigma": 0.1,
+  "r_scale_min": 0.7,
+  "r_scale_max": 1.5,
+  "vcut_delta_V": 0.03,
+  "vcut_min": 3.2,
+  "vcut_max": 3.4
+}

@@ -1,0 +1,3 @@
+model,equation,n,P0_W,k_W_per_nit,r2,rmse_W,data_source,screen_power_cols,brightness_mapping,k_apl_W,apl_mapping
+linear_brightness,P_screen = P0 + k * brightness_nits,992,0.14619946873007145,0.0007618856985895941,0.4545571148773144,0.12000274871440557,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,Display_ENERGY_AVG_UWS + L22M_DISP_ENERGY_AVG_UWS (uW->W),Brightness(0~100) -> nits = 500.0 * Brightness/100,,
+linear_brightness_plus_apl,P_screen = P0 + k*nits + k_apl*apl,992,-0.1325513045649827,0.0007555205026865887,0.7623778045106397,0.07920636001067705,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,,,0.5809214517334215,"apl = mean(RedLvl,GreenLvl,BlueLvl)/255 (0~1)"

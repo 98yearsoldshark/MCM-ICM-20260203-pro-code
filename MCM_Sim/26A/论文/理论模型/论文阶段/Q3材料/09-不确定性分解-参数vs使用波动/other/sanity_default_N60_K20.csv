@@ -1,0 +1,2 @@
+scenario_id,prior_mode,dt_s,soc0,n_samples,seeds_per_sample,seed,var_between_param_h2,var_within_usage_h2,var_total_h2,frac_param,frac_usage
+S4_mixed_day,default,10.0,1.0,60,20,7,9.806321688637398,0.0015880114837366073,9.807909700121135,0.9998380886924645,0.00016191130753548784

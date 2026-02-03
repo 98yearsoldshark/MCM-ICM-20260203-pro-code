@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "schema_version": "1.0.0",
+    "notes_zh": "参量估计建议版：基于 AndroWatts aggregated.csv 的估计结果回填屏幕/CPU/GPU 线性系数，并用能量守恒反推的 τ_tail 与 e_wifi 作为 Wi‑Fi RRC 的量级标定。建议与原配置做对照实验，而不是直接覆盖默认值。"
+  },
+  "base_W": 0.35,
+  "screen": {
+    "P0_W": 0.1461994687300714,
+    "k_W_per_nit": 0.0007618856985895
+  },
+  "cpu": {
+    "k_W": 2.889355522430016
+  },
+  "gpu": {
+    "k_W": 0.3721867451845003
+  },
+  "gps": {
+    "P_W": 0.2
+  },
+  "background_level_W": {
+    "low": 0.12,
+    "medium": 0.25,
+    "high": 0.45
+  },
+  "rrc": {
+    "tau_tail_s": {
+      "wifi": 18.99079277253595,
+      "lte": 10.0,
+      "5g": 12.0
+    },
+    "p_state_W": {
+      "wifi": {
+        "IDLE": 0.03,
+        "CONNECTED": 0.18,
+        "TAIL": 0.08
+      },
+      "lte": {
+        "IDLE": 0.1,
+        "CONNECTED": 0.55,
+        "TAIL": 0.45
+      },
+      "5g": {
+        "IDLE": 0.12,
+        "CONNECTED": 0.7,
+        "TAIL": 0.6
+      }
+    },
+    "e_per_mb_J": {
+      "wifi": 0.1504477893744842,
+      "lte": 2.6,
+      "5g": 2.9
+    },
+    "signal_psi": {
+      "good": 1.0,
+      "poor": 1.7
+    },
+    "throughput_MBps_by_activity": {
+      "idle": 0.0,
+      "browse": 0.0,
+      "video": 1.0,
+      "nav": 0.0,
+      "game": 0.0,
+      "voice": 0.02
+    },
+    "burst_rate_per_s_by_activity": {
+      "idle": 0.0,
+      "browse": 0.05,
+      "video": 0.0,
+      "nav": 0.03,
+      "game": 0.02,
+      "voice": 0.0
+    },
+    "burst_mb_by_activity": {
+      "idle": 0.0,
+      "browse": 2.0,
+      "video": 0.0,
+      "nav": 0.4,
+      "game": 0.2,
+      "voice": 0.0
+    }
+  },
+  "background_poisson": {
+    "lambda_per_s": {
+      "low": 0.002,
+      "medium": 0.006,
+      "high": 0.02
+    },
+    "data_mb_per_wake": 0.03,
+    "cpu_wake_W": 1.0,
+    "cpu_wake_duration_s": 0.5
+  },
+  "screen_markov": {
+    "wake_brightness_nits": 150.0,
+    "off_to_on_rate_per_s_by_activity": {
+      "standby": 0.0006,
+      "call": 0.0003
+    },
+    "on_to_off_rate_per_s_by_activity": {
+      "standby": 0.05,
+      "call": 0.05
+    }
+  },
+  "signal_markov": {
+    "enabled_radio_modes": [
+      "lte",
+      "5g"
+    ],
+    "rates_by_base": {
+      "good": {
+        "good_to_poor": 0.001,
+        "poor_to_good": 0.02
+      },
+      "poor": {
+        "good_to_poor": 0.02,
+        "poor_to_good": 0.001
+      }
+    }
+  },
+  "interaction": {
+    "beta_screen_net_W": 0.15,
+    "beta_net_highcpu_W": 0.12,
+    "beta_screen_highcpu_W": 0.1,
+    "cpu_high_threshold": 0.7
+  },
+  "dvfs": {
+    "throttle_temp_C": 45.0,
+    "slope_per_C": 0.03,
+    "min_scale": 0.6
+  }
+}

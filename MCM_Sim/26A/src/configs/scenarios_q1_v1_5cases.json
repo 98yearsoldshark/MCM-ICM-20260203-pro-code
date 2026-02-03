@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "time_unit": "s",
+    "notes_zh": "Q1 专用：用于 Model-0 vs Model-1（TTE）对照图的 5 类典型使用场景口径。该文件不影响 Q2/Q3 的场景集。"
+  },
+  "defaults": {
+    "ambient_temp_c": 23.0,
+    "screen_on": 0,
+    "brightness_nits": 0.0,
+    "activity": "standby",
+    "cpu_load": 0.02,
+    "gpu_load": 0.0,
+    "radio_mode": "wifi",
+    "signal_quality": "good",
+    "net_activity": "idle",
+    "gps_on": 0,
+    "background_level": "low"
+  },
+  "scenarios": {
+    "S1_standby_light": {
+      "title_zh": "S1 待机/轻度",
+      "title_en": "S1 Standby/light",
+      "description_zh": "低亮或熄屏，低吞吐，后台少。",
+      "description_en": "Screen off or low brightness, low throughput, few background tasks.",
+      "repeat": true,
+      "cycle_s": 3600,
+      "schedule": [
+        {
+          "duration_s": 3600,
+          "screen_on": 0,
+          "brightness_nits": 0.0,
+          "activity": "standby",
+          "cpu_load": 0.02,
+          "gpu_load": 0.0,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ]
+    },
+    "S2_browse_social": {
+      "title_zh": "S2 浏览/社交",
+      "title_en": "S2 Browsing/social",
+      "description_zh": "频繁切换加载，后台开启应用较多。",
+      "description_en": "Frequent page loads/app switching, more background apps.",
+      "repeat": true,
+      "cycle_s": 300,
+      "schedule": [
+        {
+          "duration_s": 30,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.35,
+          "gpu_load": 0.15,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "browse",
+          "gps_on": 0,
+          "background_level": "medium"
+        },
+        {
+          "duration_s": 30,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.12,
+          "gpu_load": 0.05,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "medium"
+        },
+        {
+          "duration_s": 30,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.35,
+          "gpu_load": 0.15,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "browse",
+          "gps_on": 0,
+          "background_level": "medium"
+        },
+        {
+          "duration_s": 210,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.08,
+          "gpu_load": 0.03,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "medium"
+        }
+      ]
+    },
+    "S3_video_streaming": {
+      "title_zh": "S3 视频/直播",
+      "title_en": "S3 Video/streaming",
+      "description_zh": "负载较稳但使用时间长，缓存大。",
+      "description_en": "Relatively steady load but long duration, large buffering.",
+      "repeat": true,
+      "cycle_s": 600,
+      "schedule": [
+        {
+          "duration_s": 600,
+          "screen_on": 1,
+          "brightness_nits": 200.0,
+          "activity": "video",
+          "cpu_load": 0.15,
+          "gpu_load": 0.1,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "video",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ]
+    },
+    "S4_gaming": {
+      "title_zh": "S4 游戏",
+      "title_en": "S4 Gaming",
+      "description_zh": "CPU/GPU 使用度高，温度高。",
+      "description_en": "High CPU/GPU utilization, higher temperature.",
+      "repeat": true,
+      "cycle_s": 300,
+      "schedule": [
+        {
+          "duration_s": 300,
+          "screen_on": 1,
+          "brightness_nits": 200.0,
+          "activity": "gaming",
+          "cpu_load": 0.8,
+          "gpu_load": 0.9,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ]
+    },
+    "S5_nav_call": {
+      "title_zh": "S5 导航/通话",
+      "title_en": "S5 Navigation/calls",
+      "description_zh": "蜂窝多，GPS 常开，弱信号惩罚明显。",
+      "description_en": "Cellular-heavy, GPS always on, strong weak-signal penalty.",
+      "repeat": true,
+      "cycle_s": 600,
+      "schedule": [
+        {
+          "duration_s": 420,
+          "screen_on": 1,
+          "brightness_nits": 400.0,
+          "activity": "navigation",
+          "cpu_load": 0.25,
+          "gpu_load": 0.2,
+          "radio_mode": "lte",
+          "signal_quality": "poor",
+          "net_activity": "nav",
+          "gps_on": 1,
+          "background_level": "low"
+        },
+        {
+          "duration_s": 180,
+          "screen_on": 0,
+          "brightness_nits": 0.0,
+          "activity": "call",
+          "cpu_load": 0.08,
+          "gpu_load": 0.0,
+          "radio_mode": "lte",
+          "signal_quality": "poor",
+          "net_activity": "voice",
+          "gps_on": 1,
+          "background_level": "low"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+model,equation,n,P_idle_W,e_per_mb_J,r2,rmse_W,data_source,throughput_def,duration_def,power_def
+linear_wifi_throughput,P_radio = P_idle + e_per_mb_J * throughput_MBps,881,0.1937429093091443,0.19162685928718365,0.4913455311343431,0.018747769554315535,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,TOTAL_DATA_WIFI_BYTES / duration_s_est / 1e6 (MB/s),sum(ENERGY_UW)/sum(ENERGY_AVG_UWS) (see mcm26a.observed.andro_watts.estimate_duration_s),P_radio = (WLANBT + CELLULAR + CELLULAR.1)_ENERGY_AVG_UWS * 1e-6

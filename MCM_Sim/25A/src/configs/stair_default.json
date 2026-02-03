@@ -1,0 +1,73 @@
+{
+  "random_seed": 20260125,
+  "surface": {
+    "type": "rect_height_field",
+    "width_m": 1.2,
+    "depth_m": 0.3,
+    "cell_m": 0.005
+  },
+  "traffic": {
+    "n_days": 1095,
+    "mean_daily_footfalls": 6000,
+    "day_profile": {
+      "type": "weekday_weekend",
+      "weekday_multiplier": 1.0,
+      "weekend_multiplier": 1.35
+    },
+    "seasonality": {
+      "type": "sinusoid",
+      "amplitude": 0.25,
+      "period_days": 365.0,
+      "phase_days": 0.0
+    },
+    "up_ratio": 0.5,
+    "daily_noise": {
+      "type": "lognormal",
+      "sigma": 0.15
+    }
+  },
+  "contact": {
+    "center_distribution": {
+      "type": "gmm_separable",
+      "lanes": [
+        { "mu_x_frac": 0.33, "sigma_x_m": 0.08, "weight": 0.45 },
+        { "mu_x_frac": 0.67, "sigma_x_m": 0.08, "weight": 0.45 },
+        { "mu_x_frac": 0.50, "sigma_x_m": 0.12, "weight": 0.10 }
+      ],
+      "mu_y_up_frac": 0.75,
+      "mu_y_down_frac": 0.85,
+      "sigma_y_m": 0.06
+    },
+    "footprint_kernel": {
+      "type": "elliptical_gaussian",
+      "sigma_x_m": 0.055,
+      "sigma_y_m": 0.095,
+      "size_m": 0.35
+    },
+    "edge_scuff": {
+      "enabled": true,
+      "band_m": 0.02,
+      "fraction_of_contacts": 0.22,
+      "kernel": {
+        "type": "elliptical_gaussian",
+        "sigma_x_m": 0.06,
+        "sigma_y_m": 0.015,
+        "size_m": 0.20
+      }
+    },
+    "sampling": {
+      "method": "poisson"
+    }
+  },
+  "wear": {
+    "law": "archard_like",
+    "wear_per_contact_peak_mm": 1e-7,
+    "edge_scuff_multiplier": 6.0
+  },
+  "output": {
+    "run_dir": "runs",
+    "save_every_days": 30,
+    "make_plots": true
+  }
+}
+

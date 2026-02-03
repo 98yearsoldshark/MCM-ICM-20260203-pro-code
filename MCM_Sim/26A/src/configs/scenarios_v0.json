@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "time_unit": "s",
+    "notes_zh": "场景以分段常值的 schedule 表示；若 repeat=true，则该 schedule 循环重复直到电池耗尽（用于 TTE 计算）。"
+  },
+  "defaults": {
+    "ambient_temp_c": 23.0,
+    "screen_on": 0,
+    "brightness_nits": 0.0,
+    "activity": "standby",
+    "cpu_load": 0.02,
+    "gpu_load": 0.0,
+    "radio_mode": "wifi",
+    "signal_quality": "good",
+    "net_activity": "idle",
+    "gps_on": 0,
+    "background_level": "low"
+  },
+  "scenarios": {
+    "S0_standby": {
+      "title_zh": "待机/轻后台",
+      "description_zh": "屏幕关闭，网络空闲，后台轻活动。该场景用于刻画基础待机耗电，并对比信号强弱对耗电的放大效应。",
+      "repeat": true,
+      "cycle_s": 3600,
+      "schedule": [
+        {
+          "duration_s": 3600,
+          "screen_on": 0,
+          "brightness_nits": 0.0,
+          "activity": "standby",
+          "cpu_load": 0.02,
+          "gpu_load": 0.0,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ],
+      "variants": {
+        "wifi_poor_signal": {
+          "description_zh": "Wi-Fi 信号差（用于对比无线信号差导致的额外耗电）。",
+          "overrides": { "signal_quality": "poor" }
+        },
+        "cellular_good_signal": {
+          "description_zh": "蜂窝网络，信号好（对比 Wi-Fi 与蜂窝待机）。",
+          "overrides": { "radio_mode": "lte", "signal_quality": "good" }
+        },
+        "cellular_poor_signal": {
+          "description_zh": "蜂窝网络，信号差（典型“没怎么用但掉电很快”情形）。",
+          "overrides": { "radio_mode": "lte", "signal_quality": "poor" }
+        },
+        "cold_outdoor": {
+          "description_zh": "低温户外（ambient=-5°C）：电池内阻上升、有效容量下降，更易触发欠压提前关机。",
+          "overrides": { "ambient_temp_c": -5.0 }
+        },
+        "hot_summer": {
+          "description_zh": "炎热夏季（ambient=40°C）：初期电压裕量较大，但可能更易升温（高负载场景更明显）。",
+          "overrides": { "ambient_temp_c": 40.0 }
+        }
+      }
+    },
+    "S1b_browse": {
+      "title_zh": "浏览/社交媒体",
+      "title_en": "Browsing\n(social media)",
+      "description_zh": "频繁刷信息流/社交应用：屏幕常亮中等亮度，CPU/GPU 中等负载，网络小流量高频请求，且后台活动处于中等水平。用于刻画“频繁切换/多后台”导致的典型耗电。",
+      "repeat": true,
+      "cycle_s": 120,
+      "schedule": [
+        {
+          "duration_s": 30,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.22,
+          "gpu_load": 0.12,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "browse",
+          "gps_on": 0,
+          "background_level": "medium"
+        },
+        {
+          "duration_s": 15,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.30,
+          "gpu_load": 0.16,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "browse",
+          "gps_on": 0,
+          "background_level": "medium"
+        },
+        {
+          "duration_s": 45,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.16,
+          "gpu_load": 0.10,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "medium"
+        },
+        {
+          "duration_s": 30,
+          "screen_on": 1,
+          "brightness_nits": 220.0,
+          "activity": "browse",
+          "cpu_load": 0.24,
+          "gpu_load": 0.12,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "browse",
+          "gps_on": 0,
+          "background_level": "medium"
+        }
+      ],
+      "variants": {
+        "wifi_poor_signal": {
+          "description_zh": "Wi-Fi 信号差：信息流刷新更“吃无线”，也更可能触发尾态与额外重传。",
+          "overrides": { "signal_quality": "poor" }
+        },
+        "cold_outdoor": {
+          "description_zh": "低温户外（ambient=-5°C）：内阻上升使突发加载更易逼近欠压边界。",
+          "overrides": { "ambient_temp_c": -5.0 }
+        },
+        "hot_summer": {
+          "description_zh": "炎热夏季（ambient=40°C）：热耦合更显著（高负载段温升更快）。",
+          "overrides": { "ambient_temp_c": 40.0 }
+        }
+      }
+    },
+    "S1_video": {
+      "title_zh": "视频播放/视频流",
+      "description_zh": "屏幕常亮，持续播放视频（本地或流媒体）。用于刻画“屏幕+解码+网络”叠加耗电。",
+      "repeat": true,
+      "cycle_s": 600,
+      "schedule": [
+        {
+          "duration_s": 600,
+          "screen_on": 1,
+          "brightness_nits": 200.0,
+          "activity": "video",
+          "cpu_load": 0.15,
+          "gpu_load": 0.10,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "video",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ],
+      "variants": {
+        "cellular_stream": {
+          "description_zh": "蜂窝网络视频流（对比 Wi-Fi）。",
+          "overrides": { "radio_mode": "lte", "net_activity": "video" }
+        },
+        "cellular_poor_signal": {
+          "description_zh": "蜂窝网络且信号差（最容易出现异常耗电）。",
+          "overrides": { "radio_mode": "lte", "signal_quality": "poor", "net_activity": "video" }
+        },
+        "local_play": {
+          "description_zh": "本地播放（近似无网络传输）。",
+          "overrides": { "net_activity": "idle" }
+        },
+        "cold_outdoor": {
+          "description_zh": "低温户外（ambient=-5°C）：同等功耗下更易欠压，TTE 可能显著缩短。",
+          "overrides": { "ambient_temp_c": -5.0 }
+        },
+        "hot_summer": {
+          "description_zh": "炎热夏季（ambient=40°C）：热累积与节流效应更可能出现（若启用）。",
+          "overrides": { "ambient_temp_c": 40.0 }
+        }
+      }
+    },
+    "S2_navigation": {
+      "title_zh": "导航（GPS + 地图数据）",
+      "description_zh": "户外导航：屏幕常亮偏高亮度、GPS 持续开启、网络有持续数据请求。用于解释“导航很费电”的驱动因素。",
+      "repeat": true,
+      "cycle_s": 600,
+      "schedule": [
+        {
+          "duration_s": 600,
+          "screen_on": 1,
+          "brightness_nits": 400.0,
+          "activity": "navigation",
+          "cpu_load": 0.25,
+          "gpu_load": 0.20,
+          "radio_mode": "lte",
+          "signal_quality": "good",
+          "net_activity": "nav",
+          "gps_on": 1,
+          "background_level": "low"
+        }
+      ],
+      "variants": {
+        "rural_poor_signal": {
+          "description_zh": "偏远地区信号差（导航时最容易叠加放大耗电）。",
+          "overrides": { "signal_quality": "poor" }
+        },
+        "wifi_navigation": {
+          "description_zh": "Wi-Fi 环境下导航（对比蜂窝）。",
+          "overrides": { "radio_mode": "wifi" }
+        },
+        "cold_outdoor": {
+          "description_zh": "低温户外（ambient=-5°C）：导航高负载 + 低温更易触发欠压提前关机。",
+          "overrides": { "ambient_temp_c": -5.0 }
+        },
+        "hot_summer": {
+          "description_zh": "炎热夏季（ambient=40°C）：导航持续高亮与计算更易升温。",
+          "overrides": { "ambient_temp_c": 40.0 }
+        }
+      }
+    },
+    "S3_gaming": {
+      "title_zh": "游戏（高 CPU/GPU 负载）",
+      "description_zh": "高 CPU/GPU 负载、屏幕常亮；可选在线联机带来持续网络活动。用于刻画高负载下的快速耗电。",
+      "repeat": true,
+      "cycle_s": 300,
+      "schedule": [
+        {
+          "duration_s": 300,
+          "screen_on": 1,
+          "brightness_nits": 200.0,
+          "activity": "gaming",
+          "cpu_load": 0.80,
+          "gpu_load": 0.90,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ],
+      "variants": {
+        "online_game": {
+          "description_zh": "在线联机（持续少量网络）。",
+          "overrides": { "net_activity": "game" }
+        },
+        "high_brightness": {
+          "description_zh": "户外高亮度（对比亮度的边际收益）。",
+          "overrides": { "brightness_nits": 400.0 }
+        },
+        "cold_outdoor": {
+          "description_zh": "低温户外（ambient=-5°C）：高电流放电导致端电压下沉更大，易提前关机。",
+          "overrides": { "ambient_temp_c": -5.0 }
+        },
+        "hot_summer": {
+          "description_zh": "炎热夏季（ambient=40°C）：高负载更易升温，节流机制（若启用）可能改变功耗与续航。",
+          "overrides": { "ambient_temp_c": 40.0 }
+        }
+      }
+    },
+    "S4_mixed_day": {
+      "title_zh": "混合使用（标准一天）",
+      "description_zh": "标准 24h 混合日程：每天 1h 通话 + 1h Wi-Fi 浏览 + 1h 视频，其余时间待机；循环重复用于 TTE/耐久度对比。",
+      "repeat": true,
+      "cycle_s": 86400,
+      "schedule": [
+        {
+          "duration_s": 3600,
+          "screen_on": 0,
+          "brightness_nits": 0.0,
+          "activity": "call",
+          "cpu_load": 0.08,
+          "gpu_load": 0.00,
+          "radio_mode": "lte",
+          "signal_quality": "good",
+          "net_activity": "voice",
+          "gps_on": 0,
+          "background_level": "low"
+        },
+        {
+          "duration_s": 3600,
+          "screen_on": 1,
+          "brightness_nits": 200.0,
+          "activity": "browse",
+          "cpu_load": 0.20,
+          "gpu_load": 0.10,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "browse",
+          "gps_on": 0,
+          "background_level": "low"
+        },
+        {
+          "duration_s": 3600,
+          "screen_on": 1,
+          "brightness_nits": 200.0,
+          "activity": "video",
+          "cpu_load": 0.15,
+          "gpu_load": 0.10,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "video",
+          "gps_on": 0,
+          "background_level": "low"
+        },
+        {
+          "duration_s": 75600,
+          "screen_on": 0,
+          "brightness_nits": 0.0,
+          "activity": "standby",
+          "cpu_load": 0.02,
+          "gpu_load": 0.00,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ],
+      "variants": {
+        "cellular_browse": {
+          "description_zh": "把浏览从 Wi-Fi 改为蜂窝网络（更贴近外出日）。",
+          "segment_overrides": { "1": { "radio_mode": "lte" } }
+        },
+        "poor_signal_standby": {
+          "description_zh": "把待机段设置为信号差（对耐久度影响通常很大）。",
+          "segment_overrides": { "3": { "signal_quality": "poor" } }
+        },
+        "cold_outdoor": {
+          "description_zh": "低温户外（ambient=-5°C）：日常混合使用下的“可用容量下降/欠压提前关机”综合效应。",
+          "overrides": { "ambient_temp_c": -5.0 }
+        },
+        "hot_summer": {
+          "description_zh": "炎热夏季（ambient=40°C）：长时间使用下温升与节流更可能出现。",
+          "overrides": { "ambient_temp_c": 40.0 }
+        }
+      }
+    }
+    ,
+    "S5_burst_recovery": {
+      "title_zh": "高负载→休止：恢复效应演示",
+      "description_zh": "用于验证“恢复效应”：先给一段高负载（屏幕+CPU/GPU），随后进入低负载休止（屏幕关闭、后台轻）。Model-1/2/3 应表现为端电压与极化电压 v1 逐渐回升/衰减，而 SOC_true 仍单调下降。",
+      "repeat": true,
+      "cycle_s": 2400,
+      "schedule": [
+        {
+          "duration_s": 600,
+          "screen_on": 1,
+          "brightness_nits": 250.0,
+          "activity": "gaming",
+          "cpu_load": 0.85,
+          "gpu_load": 0.90,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "low"
+        },
+        {
+          "duration_s": 1800,
+          "screen_on": 0,
+          "brightness_nits": 0.0,
+          "activity": "standby",
+          "cpu_load": 0.02,
+          "gpu_load": 0.0,
+          "radio_mode": "wifi",
+          "signal_quality": "good",
+          "net_activity": "idle",
+          "gps_on": 0,
+          "background_level": "low"
+        }
+      ],
+      "variants": {
+        "poor_signal_rest": {
+          "description_zh": "休止段信号差（用于对比信号差导致的额外耗电与电压裕量缩小）。",
+          "segment_overrides": { "1": { "signal_quality": "poor" } }
+        },
+        "cold_outdoor": {
+          "description_zh": "低温户外（ambient=-5°C）：验证恢复效应在低温下的差异（回弹更慢/欠压更易触发）。",
+          "overrides": { "ambient_temp_c": -5.0 }
+        },
+        "hot_summer": {
+          "description_zh": "炎热夏季（ambient=40°C）：验证恢复效应在高温下的差异（温升更快）。",
+          "overrides": { "ambient_temp_c": 40.0 }
+        }
+      }
+    }
+  }
+}

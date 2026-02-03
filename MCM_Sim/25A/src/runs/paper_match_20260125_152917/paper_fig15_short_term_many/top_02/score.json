@@ -1,0 +1,11 @@
+{
+  "trial": 86,
+  "target_id": "paper_fig15_short_term_many",
+  "target_desc": "论文 图15(1)：短时间内大量人员使用",
+  "score": 0.7101381318074913,
+  "corr": 0.7213680352473484,
+  "center_dist": 0.03208543839959167,
+  "grad_mean_paper": 0.012395495773606404,
+  "grad_mean_sim": 0.004676741851966884,
+  "grad_ratio_sim_over_paper": 0.3772936506440525
+}

@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "source": "CALCE UMD battery-data / SP20-1 (ablation)",
+    "notes_zh": "消融配置（12_09 定向微调）：用于修正 12_09 Incremental OCV 验证集中两类观测缺陷：\n\nA) 中段（约 3~16h、27~37h）预测电压整体偏低（需要轻微上移）\n- 处理：仅在中等 SOC 区间对 OCV 曲线做 +20mV 级别的温和修正（不改变 SOC≈1 的两端）。\n\nB) 约 22h 的“较深向下尖峰”预测下探不够、以及尖峰后首个平台偏高\n- 处理：扩散极化/慢恢复状态 z(t) 的建立门控放宽到 V<=3.06V（仍要求 SOC<=0.10 且 I>=0.5A），让它在该脉冲末端短时间建立，产生额外压降并降低首个平台。\n\n说明：模型结构不变，仅参数/曲线调整；不会影响 Q2（Q2 不使用本 2RC 校准链路）。",
+    "base_configs": [
+      "configs/battery_calce_sp20_1_ecmfit_r0fixed_2rc_from_10_16seg_tauconstrained.json"
+    ]
+  },
+  "battery": {
+    "capacity_mAh": 2157,
+    "nominal_voltage_V": 3.685050300002716,
+    "energy_Wh": 7.948377118333334,
+    "soc_min": 0.02,
+    "soc0_default": 1.0,
+    "ecm": {
+      "V_cut_V": 3.3,
+      "R0_ohm": 0.15343496229968495,
+      "R1_ohm": 0.024824352118684924,
+      "C1_F": 8056.605024074603,
+      "R2_ohm": 0.09504831047863652,
+      "C2_F": 154915.24302854118,
+      "diff_gamma": 120.0,
+      "diff_i_thresh_A": 0.5,
+      "diff_soc_thresh": 0.1,
+      "diff_v_thresh_V": 3.06,
+      "diff_relax_tau_s": 20000.0,
+      "diff_relax_tau_init_s": 60.0,
+      "diff_relax_z_thresh": 0.35,
+      "diff_relax_tau_fast_s": 600.0,
+      "diff_relax_v_thresh_V": 3.3,
+      "diff_M_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [
+            0.0,
+            0.56
+          ],
+          [
+            0.1,
+            0.56
+          ],
+          [
+            0.2,
+            0.08
+          ],
+          [
+            0.3,
+            0.02
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ]
+      },
+      "diff_R_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [
+            0.0,
+            0.18
+          ],
+          [
+            0.1,
+            0.18
+          ],
+          [
+            0.2,
+            0.02
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ]
+      },
+      "ocv_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [
+            0.0,
+            3.0115
+          ],
+          [
+            0.05,
+            3.3775
+          ],
+          [
+            0.1,
+            3.429
+          ],
+          [
+            0.15000000000000002,
+            3.4695
+          ],
+          [
+            0.2,
+            3.537
+          ],
+          [
+            0.25,
+            3.569
+          ],
+          [
+            0.30000000000000004,
+            3.587
+          ],
+          [
+            0.35000000000000003,
+            3.602
+          ],
+          [
+            0.4,
+            3.617
+          ],
+          [
+            0.45,
+            3.633
+          ],
+          [
+            0.5,
+            3.654
+          ],
+          [
+            0.55,
+            3.685
+          ],
+          [
+            0.6000000000000001,
+            3.734
+          ],
+          [
+            0.65,
+            3.781
+          ],
+          [
+            0.7000000000000001,
+            3.829
+          ],
+          [
+            0.75,
+            3.88
+          ],
+          [
+            0.8,
+            3.934
+          ],
+          [
+            0.8500000000000001,
+            3.99
+          ],
+          [
+            0.9,
+            4.029
+          ],
+          [
+            0.9500000000000001,
+            4.092
+          ],
+          [
+            1.0,
+            4.175
+          ]
+        ]
+      }
+    },
+    "thermal": {
+      "T_ref_C": 25.0,
+      "T0_C": 25.0,
+      "C_th_J_per_K": 250.0,
+      "R_th_K_per_W": 2.5,
+      "eta_device_heat": 0.95,
+      "r0_temp_coeff_per_C": 0.015,
+      "r1_temp_coeff_per_C": 0.015,
+      "capacity_temp_coeff_per_C": 0.002,
+      "min_temp_C": -10.0,
+      "max_temp_C": 70.0
+    },
+    "aging": {
+      "cap_fade_per_Ah": 0.0,
+      "r0_growth_per_Ah": 0.0,
+      "r1_growth_per_Ah": 0.0,
+      "aging_q10_cycle": 2.0,
+      "cap_fade_per_day": 0.0,
+      "r0_growth_per_day": 0.0,
+      "aging_q10_calendar": 2.0,
+      "soc_calendar_k": 0.0,
+      "soc_calendar_ref": 0.5,
+      "cap_loss_max_frac": 0.5,
+      "r_growth_max_frac": 2.0
+    }
+  }
+}
+

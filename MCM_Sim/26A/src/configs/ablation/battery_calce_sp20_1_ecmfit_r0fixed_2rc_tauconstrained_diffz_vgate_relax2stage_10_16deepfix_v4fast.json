@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "source": "CALCE UMD battery-data / SP20-1 (ablation)",
+    "notes_zh": "10_16 定向修正 v4（更快的尖峰后初始恢复 + 更强的非平衡建立）：\n\n目标：继续修复你指出的两点（以极深尖峰为中心的局部形态）：\n1) 离开极深尖峰后（t>0）我们的回弹弧度偏大、平台不够“直角/清晰”；\n2) 关断后首个时刻电压仍偏高（说明 z 在关断瞬时不够强，或其快速恢复不够快）。\n\n思路（机理解释保持一致，不引入黑箱拟合）：\n- 观测数据在关断后 0~1 秒内电压上升非常快，意味着除了 2RC（分钟级/小时级）外，还存在更快的“非平衡松弛”时间尺度；\n- 这里用 diff_z 的三阶段恢复去刻画：把最初阶段的时间常数调到 0.4s 量级，用于产生“更接近直角”的快速回弹；\n- 同时略增强 diff_gamma（非平衡建立速率），使得在尖峰最低点附近 z 更大，从而降低关断后首个平台。\n\n注意：该配置仍是显式连续时间机理模型（状态方程 + 观测方程），仅作为 10_16 的针对性变体，不替代 12_09 的主验证最佳配置。",
+    "base_configs": [
+      "configs/ablation/battery_calce_sp20_1_ecmfit_r0fixed_2rc_tauconstrained_diffz_vgate_relax2stage_10_16deepfix_v3smooth.json"
+    ]
+  },
+  "battery": {
+    "capacity_mAh": 2157,
+    "nominal_voltage_V": 3.685050300002716,
+    "energy_Wh": 7.948377118333334,
+    "soc_min": 0.02,
+    "soc0_default": 1.0,
+    "ecm": {
+      "V_cut_V": 3.3,
+      "R0_ohm": 0.126,
+      "R1_ohm": 0.024824352118684924,
+      "C1_F": 8056.605024074603,
+      "R2_ohm": 0.09504831047863652,
+      "C2_F": 154915.24302854118,
+      "diff_gamma": 200.0,
+      "diff_i_thresh_A": 0.5,
+      "diff_soc_thresh": 0.1,
+      "diff_v_thresh_V": 2.9,
+      "diff_gate_soc_sigma": 0.01,
+      "diff_gate_v_sigma_V": 0.05,
+      "diff_gate_i_sigma_A": 0.1,
+      "diff_relax_tau_s": 600.0,
+      "diff_relax_tau_init_s": 0.4,
+      "diff_relax_z_thresh": 0.35,
+      "diff_relax_tau_mid_s": 8.0,
+      "diff_relax_z_thresh_mid": 0.12,
+      "diff_relax_tau_fast_s": 0.0,
+      "diff_relax_v_thresh_V": 0.0,
+      "diff_M_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [
+            0.0,
+            1.25
+          ],
+          [
+            0.1,
+            1.25
+          ],
+          [
+            0.2,
+            0.08
+          ],
+          [
+            0.3,
+            0.02
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ]
+      },
+      "diff_R_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ]
+      },
+      "ocv_curve": {
+        "type": "piecewise_linear",
+        "points": [
+          [
+            0.0,
+            3.0115
+          ],
+          [
+            0.05,
+            3.3775
+          ],
+          [
+            0.1,
+            3.429
+          ],
+          [
+            0.15000000000000002,
+            3.4695
+          ],
+          [
+            0.2,
+            3.517
+          ],
+          [
+            0.25,
+            3.549
+          ],
+          [
+            0.30000000000000004,
+            3.567
+          ],
+          [
+            0.35000000000000003,
+            3.582
+          ],
+          [
+            0.4,
+            3.597
+          ],
+          [
+            0.45,
+            3.613
+          ],
+          [
+            0.5,
+            3.634
+          ],
+          [
+            0.55,
+            3.665
+          ],
+          [
+            0.6000000000000001,
+            3.714
+          ],
+          [
+            0.65,
+            3.761
+          ],
+          [
+            0.7000000000000001,
+            3.809
+          ],
+          [
+            0.75,
+            3.86
+          ],
+          [
+            0.8,
+            3.914
+          ],
+          [
+            0.8500000000000001,
+            3.97
+          ],
+          [
+            0.9,
+            4.029
+          ],
+          [
+            0.9500000000000001,
+            4.092
+          ],
+          [
+            1.0,
+            4.175
+          ]
+        ]
+      }
+    },
+    "thermal": {
+      "T_ref_C": 25.0,
+      "T0_C": 25.0,
+      "C_th_J_per_K": 250.0,
+      "R_th_K_per_W": 2.5,
+      "eta_device_heat": 0.95,
+      "r0_temp_coeff_per_C": 0.015,
+      "r1_temp_coeff_per_C": 0.015,
+      "capacity_temp_coeff_per_C": 0.002,
+      "min_temp_C": -10.0,
+      "max_temp_C": 70.0
+    },
+    "aging": {
+      "cap_fade_per_Ah": 0.0,
+      "r0_growth_per_Ah": 0.0,
+      "r1_growth_per_Ah": 0.0,
+      "aging_q10_cycle": 2.0,
+      "cap_fade_per_day": 0.0,
+      "r0_growth_per_day": 0.0,
+      "aging_q10_calendar": 2.0,
+      "soc_calendar_k": 0.0,
+      "soc_calendar_ref": 0.5,
+      "cap_loss_max_frac": 0.5,
+      "r_growth_max_frac": 2.0
+    }
+  }
+}
+

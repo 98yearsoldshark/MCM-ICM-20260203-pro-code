@@ -1,0 +1,109 @@
+Archive:  MCM_Sim/26A/data/SmartphoneMeasurements/SmartphoneMeasurements.zip
+6fd48015cc01c926cac81cf8de423649eec2f0a9
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/
+     8643  10-29-2020 05:58   SmartphoneMeasurements-main/Bluetooh Throughput.xlsx
+     8138  10-29-2020 05:58   SmartphoneMeasurements-main/LTE Throughput.xlsx
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/
+     8491  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneBaseline.csv
+     1027  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneClient3g.csv
+     8471  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneClientBluetooth.csv
+    16783  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneClientTcpDirect.csv
+    16748  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneClientTcpRouter.csv
+    16708  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneClientUdpDirect.csv
+    16769  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneClientUdpRouter.csv
+      971  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneServer3g.csv
+     8283  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneServerBluetooth.csv
+    16803  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneServerTcpDirect.csv
+    16767  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneServerTcpRouter.csv
+    16733  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneServerUdpDirect.csv
+    16855  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mega/smartphoneServerUdpRouter.csv
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/
+     8503  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneBaseline.csv
+     1112  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneClient3g.csv
+     8427  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneClientBluetooth.csv
+    16727  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneClientTcpDirect.csv
+    16707  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneClientTcpRouter.csv
+    16773  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneClientUdpDirect.csv
+    16758  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneClientUdpRouter.csv
+     1076  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneServer3g.csv
+     8397  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneServerBluetooth.csv
+    16716  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneServerTcpDirect.csv
+    16759  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneServerTcpRouter.csv
+    16711  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneServerUdpDirect.csv
+    16750  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Mini/smartphoneServerUdpRouter.csv
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/
+     8405  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneBaseline.csv
+     1122  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneClient3g.csv
+     8372  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneClientBluetooth.csv
+    16729  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneClientTcpDirect.csv
+    16754  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneClientTcpRouter.csv
+    16724  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneClientUdpDirect.csv
+    16703  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneClientUdpRouter.csv
+     1027  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneServer3g.csv
+    14588  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneServerBluetooth.csv
+    16694  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneServerTcpDirect.csv
+    16758  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneServerTcpRouter.csv
+    16768  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneServerUdpDirect.csv
+    16732  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 3/smartphoneServerUdpRouter.csv
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/
+     8440  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneBaseline.csv
+     1063  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneClient3g.csv
+     8391  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneClientBluetooth.csv
+    16604  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneClientTcpDirect.csv
+    16593  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneClientTcpRouter.csv
+    16609  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneClientUdpDirect.csv
+    16612  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneClientUdpRouter.csv
+      977  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneServer3g.csv
+     8493  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneServerBluetooth.csv
+    16637  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneServerTcpDirect.csv
+    16618  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneServerTcpRouter.csv
+    16703  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneServerUdpDirect.csv
+ 16512070  10-29-2020 05:58   SmartphoneMeasurements-main/Monsoon/Note 4/smartphoneServerUdpRouter.csv
+     3368  10-29-2020 05:58   SmartphoneMeasurements-main/README.md
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/
+    13606  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneClientTcpDirect.txt
+    13607  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneClientTcpRouter.txt
+    13698  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneClientUdpDirect.txt
+    14512  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneClientUdpRouter.txt
+    41495  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneClientUdpRouter2.txt
+    13207  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneServerTcpDirect.txt
+    13211  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneServerTcpRouter.txt
+    13213  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneServerUdpDirect.txt
+    11060  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneServerUdpRouter.txt
+    11247  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mega/smartphoneServerUdpRouter2.txt
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/
+    13606  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneClientTcpDirect.txt
+    13612  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneClientTcpRouter.txt
+    14690  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneClientUdpDirect.txt
+    34654  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneClientUdpRouter.txt
+    13207  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneServerTcpDirect.txt
+    13213  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneServerTcpRouter.txt
+    11243  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneServerUdpDirect.txt
+    11247  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Mini/smartphoneServerUdpRouter.txt
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/
+    13606  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneClientTcpDirect.txt
+    13606  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneClientTcpDirect2.txt
+    13612  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneClientTcpRouter.txt
+    13612  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneClientTcpRouter2.txt
+    14700  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneClientUdpDirect.txt
+    25615  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneClientUdpRouter.txt
+    20895  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneClientUdpRouter2.txt
+    13207  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneServerTcpDirect.txt
+    13213  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneServerTcpRouter.txt
+    11243  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneServerUdpDirect.txt
+    11247  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 3/smartphoneServerUdpRouter.txt
+        0  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/
+    13415  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneClientTcpDirect.txt
+    13612  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneClientTcpRouter.txt
+    15001  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneClientUdpDirect.txt
+    16582  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneClientUdpRouter.txt
+    13207  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneServerTcpDirect.txt
+    13209  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneServerTcpRouter.txt
+    11418  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneServerUdpDirect.txt
+    11247  10-29-2020 05:58   SmartphoneMeasurements-main/iPerf/Note 4/smartphoneServerUdpRouter.txt
+---------                     -------
+ 17722735                     103 files

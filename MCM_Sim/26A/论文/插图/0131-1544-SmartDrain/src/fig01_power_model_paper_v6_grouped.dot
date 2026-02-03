@@ -1,0 +1,119 @@
+digraph fig01_power_model_paper_v6_grouped {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.22,
+    ranksep=0.45,
+    splines=true,
+    pad="0.12"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#F8FAFC",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.1,
+    margin="0.10,0.06"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // 版本 v6：把 8 个模块“分组”展示（更短、更少线），但仍明确包含原式中的每一项。
+
+  subgraph cluster_groups {
+    label="Device power (grouped)";
+    color="#CBD5E1";
+    style="rounded,filled";
+    fillcolor="#F1F5F9";
+    fontcolor="#0F172A";
+
+    g_base   [fillcolor="#E2E8F0", label=< <I>P</I><SUB>base</SUB> >];
+    g_screen [fillcolor="#DBEAFE", label=< <I>P</I><SUB>screen</SUB>(t) >];
+
+    g_comp [
+      fillcolor="#DCFCE7",
+      label=<
+        <I>P</I><SUB>comp</SUB>(t)<BR/>
+        <FONT POINT-SIZE="10">= <I>P</I><SUB>cpu</SUB>(t) + <I>P</I><SUB>gpu</SUB>(t)</FONT>
+      >
+    ];
+
+    g_radio [
+      fillcolor="#FFE4E6",
+      label=<
+        <I>P</I><SUB>radio</SUB>(t)<BR/>
+        <FONT POINT-SIZE="10">= <I>P</I><SUB>net</SUB>(t) + <I>P</I><SUB>gps</SUB>(t)</FONT>
+      >
+    ];
+
+    g_user [
+      fillcolor="#FEF9C3",
+      label=<
+        <I>P</I><SUB>user</SUB>(t)<BR/>
+        <FONT POINT-SIZE="10">= <I>P</I><SUB>bg</SUB>(t) + <I>P</I><SUB>int</SUB>(t)</FONT>
+      >
+    ];
+
+    // Layout: 3 on top row, 2 on bottom (shorter).
+    {rank=same; g_base; g_screen; g_comp;}
+    {rank=same; g_radio; g_user;}
+
+    // Gentle ordering hints (invisible).
+    g_base -> g_screen -> g_comp [style=invis];
+    g_radio -> g_user [style=invis];
+  }
+
+  sum [
+    shape=circle,
+    style="filled",
+    fillcolor="#FFFFFF",
+    label=<&Sigma;>,
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=14,
+    penwidth=1.1,
+    width=0.36,
+    height=0.36,
+    fixedsize=true
+  ];
+
+  p_device [label=< <I>P</I><SUB>device</SUB>(t) >, fillcolor="#E0E7FF"];
+
+  g_base   -> sum;
+  g_screen -> sum;
+  g_comp   -> sum;
+  g_radio  -> sum;
+  g_user   -> sum;
+
+  sum -> p_device [label="=" fontcolor="#64748B"];
+
+  pmic [label="PMIC", fillcolor="#FFFFFF"];
+
+  eta [
+    shape=note,
+    style="filled",
+    fillcolor="#FFFFFF",
+    color="#475569",
+    fontcolor="#0F172A",
+    fontsize=11,
+    label=< <I>&eta;</I><SUB>PMIC</SUB> = <I>&eta;</I><SUB>0</SUB> >
+  ];
+
+  p_batt [label=< <I>P</I><SUB>batt</SUB>(t) >, fillcolor="#E0F2FE"];
+
+  p_device -> pmic [label=< <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT> > fontcolor="#64748B"];
+  eta -> pmic [style=dashed, arrowhead=none, color="#94A3B8", constraint=false];
+  pmic -> p_batt;
+}
+

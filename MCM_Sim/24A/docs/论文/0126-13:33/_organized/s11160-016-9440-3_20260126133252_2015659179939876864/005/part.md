@@ -1,0 +1,6 @@
+<!-- source: MinerU_markdown_s11160-016-9440-3_20260126133252_2015659179939876864.md; mode: auto->headings ; lines: 284-287 -->
+
+# Larval
+
+The sedentary life habits that last 2-5 years appears to be the critical ecological attribute for control at this life stage. Current control depends on reducing recruitment of juvenile sea lampreys to the Great Lakes by killing larvae during their sedentary life stage with strategic applications of lampricides every 2-4 years, depending upon larval recruitment and growth. Further exploitation of this life stage should be explored, by developing new lampricides to further reduce or eliminate larval populations, or autocidal technologies (Thresher 2008) to manipulate genes that slow growth, determine sex, prohibit metamorphosis, or increase larval mortality by disrupting feeding behavior (McCauley et al. 2015). Last, because larvae spend multiple years in the same stream environment, they acquire regionally unique chemical signatures that identify their general natal origin (Hand et al. 2008). Refining methods to determine the specific stream of origin of larvae that survive or are not exposed to lampricide applications would be beneficial for targeting future control.
+

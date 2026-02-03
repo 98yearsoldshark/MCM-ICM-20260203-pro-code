@@ -1,0 +1,11 @@
+{
+  "trial": 71,
+  "target_id": "paper_fig3_up",
+  "target_desc": "论文 图3：上楼样本热力图",
+  "score": 0.14407413038017364,
+  "corr": 0.35368478804533054,
+  "center_dist": 0.5988875933290198,
+  "grad_mean_paper": 0.02162197894880903,
+  "grad_mean_sim": 0.006001872875223958,
+  "grad_ratio_sim_over_paper": 0.2775820330522775
+}

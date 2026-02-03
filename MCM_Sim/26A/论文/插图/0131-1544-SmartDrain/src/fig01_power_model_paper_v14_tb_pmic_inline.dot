@@ -1,0 +1,73 @@
+digraph fig01_power_model_paper_v14_tb_pmic_inline {
+  graph [
+    rankdir=TB,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.24,
+    ranksep=0.25,
+    splines=true,
+    pad="0.08"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.05,
+    margin="0.06,0.04"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // v14：TB 竖向流程，保留 PMIC 语义但不额外加注释框（η 合并到 PMIC 节点中）。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="4">
+        <TR><TD COLSPAN="4" ALIGN="LEFT"><B>Components</B></TD></TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER"><I>P</I><SUB>base</SUB></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER"><I>P</I><SUB>screen</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>cpu</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>gpu</SUB>(t)</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>net</SUB>(t)</TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>gps</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>bg</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>int</SUB>(t)</TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  p_device [fillcolor="#E0E7FF", label=< <I>P</I><SUB>device</SUB>(t) >];
+
+  pmic [
+    fillcolor="#FFFFFF",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3">
+        <TR><TD><B>PMIC</B></TD></TR>
+        <TR><TD><FONT POINT-SIZE="10"><I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB></FONT></TD></TR>
+      </TABLE>
+    >
+  ];
+
+  p_batt [fillcolor="#E0F2FE", label=< <I>P</I><SUB>batt</SUB>(t) >];
+
+  components -> p_device [label=< <FONT POINT-SIZE="10">&Sigma; (sum)</FONT> > fontcolor="#64748B"];
+  p_device -> pmic [label=< <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT> > fontcolor="#64748B"];
+  pmic -> p_batt;
+}
+

@@ -1,0 +1,11 @@
+{
+  "trial": 229,
+  "target_id": "paper_fig2_overall",
+  "target_desc": "论文 图2：二维热力图（整体样本）",
+  "score": -0.38997997472326423,
+  "corr": -0.08958627393586266,
+  "center_dist": 0.8582677165354331,
+  "grad_mean_paper": 0.020557225225988095,
+  "grad_mean_sim": 0.003772210982457837,
+  "grad_ratio_sim_over_paper": 0.183498061678532
+}

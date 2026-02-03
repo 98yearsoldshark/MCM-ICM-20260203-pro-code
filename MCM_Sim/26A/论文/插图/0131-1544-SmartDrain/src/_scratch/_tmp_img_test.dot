@@ -1,0 +1,13 @@
+digraph G {
+  graph [bgcolor="transparent"];
+  node [shape=box, style="rounded,filled", fillcolor="#ffffff", color="#334155", fontname="Helvetica"];
+
+  a [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+      <TR>
+        <TD><IMG SRC="assets/icons/phone.png"/></TD>
+        <TD>Phone</TD>
+      </TR>
+    </TABLE>
+  >];
+}

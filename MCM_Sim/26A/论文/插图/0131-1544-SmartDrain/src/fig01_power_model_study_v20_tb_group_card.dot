@@ -1,0 +1,75 @@
+digraph fig01_power_model_study_v20_tb_group_card {
+  graph [
+    rankdir=TB,
+    bgcolor="transparent",
+    fontname="PingFang SC",
+    fontsize=12,
+    nodesep=0.18,
+    ranksep=0.20,
+    splines=true,
+    pad="0.06"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=12,
+    penwidth=1.0,
+    margin="0.05,0.03"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="PingFang SC",
+    fontsize=11
+  ];
+
+  // v20：学习版分组卡片（更窄、更短；仍保证与原式等价）。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1" CELLPADDING="3">
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER">基础<BR/><I>P</I><SUB>base</SUB></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER">屏幕<BR/><I>P</I><SUB>screen</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">
+            计算<BR/><I>P</I><SUB>comp</SUB>(t)<BR/>
+            <FONT POINT-SIZE="9">=<I>P</I><SUB>cpu</SUB>(t)+<I>P</I><SUB>gpu</SUB>(t)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">
+            通信/定位<BR/><I>P</I><SUB>radio</SUB>(t)<BR/>
+            <FONT POINT-SIZE="9">=<I>P</I><SUB>net</SUB>(t)+<I>P</I><SUB>gps</SUB>(t)</FONT>
+          </TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">
+            后台/交互<BR/><I>P</I><SUB>user</SUB>(t)<BR/>
+            <FONT POINT-SIZE="9">=<I>P</I><SUB>bg</SUB>(t)+<I>P</I><SUB>int</SUB>(t)</FONT>
+          </TD>
+          <TD BGCOLOR="#F1F5F9" ALIGN="CENTER">&nbsp;</TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  p_device [fillcolor="#E0E7FF", label=< <B>设备总功耗</B><BR/><I>P</I><SUB>device</SUB>(t) >];
+  p_batt   [fillcolor="#E0F2FE", label=< <B>电池端功率</B><BR/><I>P</I><SUB>batt</SUB>(t) >];
+
+  { rank=same; p_device; p_batt; }
+
+  components -> p_device [label=< <FONT POINT-SIZE="10">求和</FONT> > fontcolor="#64748B"];
+  p_device -> p_batt [
+    label=<
+      <FONT POINT-SIZE="11">除以效率 <I>&eta;</I><SUB>PMIC</SUB></FONT>
+      <FONT POINT-SIZE="9">（<I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB>，建议 0.90–0.95）</FONT>
+    >
+    fontcolor="#64748B"
+  ];
+}
+

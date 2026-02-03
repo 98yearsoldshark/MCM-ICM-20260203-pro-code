@@ -1,0 +1,6 @@
+scenario_id,title_zh,title_en,tte_model0_h,tte_model1_h,delta_h_model1_minus_model0
+S1_standby_light,S1 待机/轻度,S1 Standby/light,33.53777777777778,32.033327080528245,-1.5044506972495313
+S2_browse_social,S2 浏览/社交,S2 Browsing/social,8.91392773892774,8.35,-0.56392773892774
+S3_video_streaming,S3 视频/直播,S3 Video/streaming,6.938850574712644,6.494760041487763,-0.44409053322488123
+S4_gaming,S4 游戏,S4 Gaming,2.647719298245614,2.3733499809636642,-0.2743693172819497
+S5_nav_call,S5 导航/通话,S5 Navigation/calls,4.015469613259668,3.6717412063205974,-0.3437284069390709

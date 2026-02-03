@@ -1,0 +1,157 @@
+digraph fig01_power_model_study {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="PingFang SC",
+    fontsize=12,
+    nodesep=0.35,
+    ranksep=0.55,
+    splines=true,
+    pad="0.18"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#F8FAFC",
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=12,
+    penwidth=1.2,
+    margin="0.10,0.06"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.1,
+    arrowsize=0.9,
+    fontname="PingFang SC",
+    fontsize=11
+  ];
+
+  // 学习版：同一结构，但增加中文解释与术语说明（便于写作与复盘）。
+
+  // -------- 设备侧功耗分解 --------
+  subgraph cluster_components {
+    label="设备功耗分解（加和得到 P_device(t)）";
+    color="#CBD5E1";
+    style="rounded,filled";
+    fillcolor="#F1F5F9";
+    fontcolor="#0F172A";
+
+    p_base [
+      fillcolor="#E2E8F0",
+      label=< <B>基础功耗</B><BR/><I>P</I><SUB>base</SUB> >
+    ];
+    p_screen [
+      fillcolor="#DBEAFE",
+      label=< <B>屏幕</B><BR/><I>P</I><SUB>screen</SUB>(t) >
+    ];
+    p_cpu [
+      fillcolor="#DCFCE7",
+      label=< <B>CPU</B><BR/><I>P</I><SUB>cpu</SUB>(t) >
+    ];
+    p_gpu [
+      fillcolor="#DCFCE7",
+      label=< <B>GPU</B><BR/><I>P</I><SUB>gpu</SUB>(t) >
+    ];
+    p_net [
+      fillcolor="#FFE4E6",
+      label=< <B>蜂窝/无线通信</B><BR/><I>P</I><SUB>net</SUB>(t) >
+    ];
+    p_gps [
+      fillcolor="#FFE4E6",
+      label=< <B>定位</B><BR/><I>P</I><SUB>gps</SUB>(t) >
+    ];
+    p_bg [
+      fillcolor="#FEF9C3",
+      label=< <B>后台</B><BR/><I>P</I><SUB>bg</SUB>(t) >
+    ];
+    p_int [
+      fillcolor="#FEF9C3",
+      label=< <B>交互事件</B><BR/><I>P</I><SUB>int</SUB>(t) >
+    ];
+  }
+
+  sum [
+    shape=circle,
+    style="filled",
+    fillcolor="#FFFFFF",
+    label=<&Sigma;>,
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=14,
+    penwidth=1.2,
+    width=0.38,
+    height=0.38,
+    fixedsize=true
+  ];
+
+  p_device [
+    fillcolor="#E0E7FF",
+    label=< <B>设备总功耗</B><BR/><I>P</I><SUB>device</SUB>(t) >
+  ];
+
+  p_base   -> sum;
+  p_screen -> sum;
+  p_cpu    -> sum;
+  p_gpu    -> sum;
+  p_net    -> sum;
+  p_gps    -> sum;
+  p_bg     -> sum;
+  p_int    -> sum;
+
+  sum -> p_device [label="等于" fontcolor="#64748B"];
+
+  // -------- PMIC 效率映射：设备侧功耗 -> 电池端功率 --------
+  pmic [
+    label=< <B>PMIC</B><BR/><FONT POINT-SIZE="10">电源管理/转换</FONT> >,
+    fillcolor="#FFFFFF"
+  ];
+
+  eta [
+    shape=note,
+    style="filled",
+    fillcolor="#FFFFFF",
+    color="#475569",
+    fontcolor="#0F172A",
+    label=<
+      <B>效率参数</B><BR/>
+      <I>&eta;</I><SUB>PMIC</SUB> = <I>&eta;</I><SUB>0</SUB><BR/>
+      常量，范围 (0,1]<BR/>
+      先验建议 0.90–0.95（Q3 敏感性中扰动）
+    >
+  ];
+
+  p_batt [
+    fillcolor="#E0F2FE",
+    label=< <B>电池端功率</B><BR/><I>P</I><SUB>batt</SUB>(t) >
+  ];
+
+  p_device -> pmic [label="除以效率" fontcolor="#64748B"];
+  eta -> pmic [style=dashed, arrowhead=none, color="#94A3B8"];
+  pmic -> p_batt;
+
+  // -------- 术语/变量对照（学习用）--------
+  legend [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#CBD5E1",
+    fontname="PingFang SC",
+    fontsize=11,
+    label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+        <TR><TD BGCOLOR="#F8FAFC"><B>学习提示（变量含义）</B></TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <B>P_device(t)</B>：手机在时刻 t 的“设备侧”功耗（各模块之和）<BR ALIGN="LEFT"/>
+          <B>P_batt(t)</B>：从电池端实际取出的功率（考虑 PMIC 损耗）<BR ALIGN="LEFT"/>
+          <B>&eta;_PMIC</B>：PMIC 效率（简化为常量 &eta;0；后续可扩展为随负载/温度变化）<BR ALIGN="LEFT"/>
+        </TD></TR>
+      </TABLE>
+    >
+  ];
+
+  // 把 legend 放到图的下方，避免打断主流程。
+  { rank=sink; legend; }
+}

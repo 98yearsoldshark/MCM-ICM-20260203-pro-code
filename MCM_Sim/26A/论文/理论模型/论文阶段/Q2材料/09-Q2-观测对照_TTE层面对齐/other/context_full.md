@@ -1,0 +1,44 @@
+# 插入建议
+
+- 建议插入位置：紧跟 `07/08` 的功耗对照之后，作为 **Q2.9**，用于直接满足赛题 Q2 的 “Compare predictions to observed or plausible behavior” 在 **TTE 层面**的要求。
+- 用途：即使没有完整“满电到关机”的公开放电轨迹，也能给出可复现实验的 TTE-level 对照（proxy）。
+
+# 可直接粘贴到论文的文本（中文）
+
+## Q2.9 观测对照：在 TTE 层面对齐（基于 SmartphoneMeasurements 的可复现 proxy）
+
+在公开许可下，完整的“从满电到关机”的端到端放电轨迹并不常见。为仍然提供可复现的 TTE 层面对照，我们基于 SmartphoneMeasurements 构造一个**观测 TTE 代理（proxy）**：Monsoon 在受控网络测试下给出平均功耗 $\bar{P}_{obs}$，从而可将其转换为等效的耗尽时间
+\[
+TTE_{obs}^{equiv}=\frac{E_{batt}}{\bar{P}_{obs}}.
+\]
+尽管这不是一次完整放电实验，但它是开源、可追溯且可重复的参考点。我们随后在模型中构造匹配的“常条件”网络场景，并按首次终止（first termination）定义模拟得到 $TTE_{model}$。
+
+图 Q2-9 对比了模型预测 TTE 与观测 proxy；散点位于 $y=x$ 上方表示模型预测的续航长于观测 proxy 所暗示的续航。
+
+（在此插入图 Q2-9）
+
+图 Q2-9：TTE 层面对照（SmartphoneMeasurements）。横轴：观测 proxy TTE；纵轴：模型预测 TTE。
+
+该对照表明，模型能够复现定性排序（例如 baseline 更耐用、持续网络传输更耗电），但在网络重负载设置下倾向于高估 TTE。这给出一个明确的改进方向：无线电模型中的单位数据能耗与/或尾态功耗参数在路由器/弱信号等情形下仍偏保守，需要进一步校准或增强机制刻画。
+
+（这是讲解内容，论文中可删除）  
+这张图在论文里很有分量：它不是“功耗量级对照”，而是把公开观测直接提升到 “TTE” 这一级（即使是 proxy）。  
+同时，它也自然满足“指出模型哪里好/哪里差”：点越偏离 $y=x$ 说明误差越大；若偏离主要集中在网络场景，说明网络子模型仍是瓶颈。  
+
+# 可直接粘贴到论文的文本（英文）
+
+## Q2.9 Comparison at the TTE level: an observed, reproducible proxy
+
+Direct end-to-end discharge traces (from full battery to shutdown) are rarely available under an open license. To still provide a reproducible TTE-level comparison, we build an **observed TTE proxy** from SmartphoneMeasurements: Monsoon reports the mean power under controlled network tests, which we convert into an equivalent time-to-empty:
+\[
+TTE_{obs}^{equiv}=\frac{E_{batt}}{\bar{P}_{obs}}.
+\]
+Although this is not a full discharge experiment, it provides an open, documented, and repeatable reference point. We then construct a matching constant-condition scenario in our model and simulate until first termination.
+
+Figure Q2-9 compares the model-predicted TTE against the observed proxy. Points above the dashed line indicate that the model predicts longer battery life than suggested by the measured mean power.
+
+(Insert Figure Q2-9 here.)
+
+Figure Q2-9: TTE-level comparison (SmartphoneMeasurements). x-axis: observed proxy TTE, y-axis: model TTE.
+
+This comparison reveals that our model reproduces the qualitative ordering (baseline lasts longest; sustained network tests drain faster), while it tends to overestimate TTE under network-heavy settings. This identifies a clear improvement direction: the radio energy-per-data and/or tail-state power parameters likely remain conservative, especially under router/poor-signal regimes.

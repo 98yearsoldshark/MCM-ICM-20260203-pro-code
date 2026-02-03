@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "schema_version": "0.1.0",
+    "notes_zh": "Model-0 功耗参数（单位：瓦）。这是一组“可运行的名义参数”，用于先跑通端到端流程；不代表任何特定机型的真实测量结果。"
+  },
+  "base_W": 0.25,
+  "screen": {
+    "P0_W": 0.20,
+    "k_W_per_nit": 0.002
+  },
+  "cpu": {
+    "k_W": 2.50
+  },
+  "gpu": {
+    "k_W": 3.00
+  },
+  "gps": {
+    "P_W": 0.20
+  },
+  "background_level_W": {
+    "low": 0.05,
+    "medium": 0.15,
+    "high": 0.30
+  },
+  "signal_multiplier": {
+    "good": 1.0,
+    "poor": 1.8
+  },
+  "radio_activity_W": {
+    "wifi": {
+      "idle": 0.10,
+      "browse": 0.30,
+      "video": 0.60,
+      "nav": 0.40,
+      "game": 0.20,
+      "voice": 0.10
+    },
+    "lte": {
+      "idle": 0.20,
+      "browse": 0.80,
+      "video": 1.20,
+      "nav": 1.00,
+      "game": 0.30,
+      "voice": 0.70
+    },
+    "5g": {
+      "idle": 0.25,
+      "browse": 1.00,
+      "video": 1.50,
+      "nav": 1.20,
+      "game": 0.40,
+      "voice": 0.80
+    }
+  }
+}
+

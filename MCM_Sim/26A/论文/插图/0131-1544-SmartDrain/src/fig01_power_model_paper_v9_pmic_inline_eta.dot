@@ -1,0 +1,94 @@
+digraph fig01_power_model_paper_v9_pmic_inline_eta {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.20,
+    ranksep=0.38,
+    splines=true,
+    pad="0.10"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.1,
+    margin="0.06,0.04"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // 版本 v9：保留 “PMIC” 的物理语义，但把 η 写进 PMIC 节点（避免额外注释框带来的宽/高膨胀）。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3" CELLPADDING="4">
+        <TR>
+          <TD COLSPAN="2" ALIGN="LEFT"><FONT POINT-SIZE="12"><B>Device power</B></FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>base</SUB></FONT></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>screen</SUB>(t)</FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>cpu</SUB>(t)</FONT></TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>gpu</SUB>(t)</FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>net</SUB>(t)</FONT></TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>gps</SUB>(t)</FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>bg</SUB>(t)</FONT></TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>int</SUB>(t)</FONT></TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  sum [
+    shape=circle,
+    style="filled",
+    fillcolor="#FFFFFF",
+    label=<&Sigma;>,
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=14,
+    penwidth=1.1,
+    width=0.36,
+    height=0.36,
+    fixedsize=true
+  ];
+
+  p_device [label=< <I>P</I><SUB>device</SUB>(t) >, fillcolor="#E0E7FF"];
+
+  pmic [
+    fillcolor="#FFFFFF",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3">
+        <TR><TD><B>PMIC</B></TD></TR>
+        <TR><TD><FONT POINT-SIZE="10"><I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB></FONT></TD></TR>
+      </TABLE>
+    >
+  ];
+
+  p_batt [label=< <I>P</I><SUB>batt</SUB>(t) >, fillcolor="#E0F2FE"];
+
+  components -> sum;
+  sum -> p_device [label="=" fontcolor="#64748B"];
+  p_device -> pmic [label=< <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT> > fontcolor="#64748B"];
+  pmic -> p_batt;
+}
+

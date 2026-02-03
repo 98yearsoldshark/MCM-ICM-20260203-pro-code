@@ -1,0 +1,17 @@
+scenario_id,output,baseline_n,baseline_k,n,k,jaccard_top5_vs_baseline
+S4_mixed_day,tte_mean_h,240,4,240,4,1.0
+S4_mixed_day,min_headroom_margin,240,4,240,4,1.0
+S4_mixed_day,tte_mean_h,240,4,240,8,1.0
+S4_mixed_day,min_headroom_margin,240,4,240,8,1.0
+S4_mixed_day,tte_mean_h,240,4,600,4,1.0
+S4_mixed_day,min_headroom_margin,240,4,600,4,1.0
+S4_mixed_day,tte_mean_h,240,4,600,8,1.0
+S4_mixed_day,min_headroom_margin,240,4,600,8,1.0
+S3_gaming,tte_mean_h,240,4,240,4,1.0
+S3_gaming,min_headroom_margin,240,4,240,4,1.0
+S3_gaming,tte_mean_h,240,4,240,8,1.0
+S3_gaming,min_headroom_margin,240,4,240,8,1.0
+S3_gaming,tte_mean_h,240,4,600,4,1.0
+S3_gaming,min_headroom_margin,240,4,600,4,1.0
+S3_gaming,tte_mean_h,240,4,600,8,1.0
+S3_gaming,min_headroom_margin,240,4,600,8,1.0

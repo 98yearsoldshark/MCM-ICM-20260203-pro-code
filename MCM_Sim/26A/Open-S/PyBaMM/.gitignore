@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Demo 产物
+outputs/
+
+# 本目录独立虚拟环境（建议不要提交）
+.venv/
+

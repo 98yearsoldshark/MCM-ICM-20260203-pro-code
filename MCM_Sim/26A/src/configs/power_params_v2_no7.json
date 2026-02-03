@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "schema_version": "2.0.0",
+    "notes_zh": "no7 升级版功耗参数（面向 Q2）：在 v1_stateful 基础上加入屏幕 APL/超线性、CPU big.LITTLE+超线性、网络连续门控尾态（τ 随强度变）、DVFS-backlog 闭环。该参数集为“可运行名义值”，用于展示方法；具体数值应通过公开数据/真实测量校准，并在论文中以范围+敏感性呈现。"
+  },
+  "base_W": 0.35,
+  "screen": {
+    "P0_W": 0.12,
+    "k_W_per_nit": 0.001,
+    "ref_nits": 500.0,
+    "gamma_b": 1.15,
+    "k_apl_W": 0.25,
+    "gamma_apl": 1.20
+  },
+  "cpu": {
+    "k_lit_W": 1.20,
+    "k_big_W": 3.20,
+    "gamma_lit": 1.30,
+    "gamma_big": 1.55,
+    "u_switch": 0.45
+  },
+  "gpu": {
+    "k_W": 0.50,
+    "gamma": 1.15
+  },
+  "gps": {
+    "P_W": 0.2
+  },
+  "background_level_W": {
+    "low": 0.12,
+    "medium": 0.25,
+    "high": 0.45
+  },
+  "rrc": {
+    "tau_tail_s": {
+      "wifi": 4.0,
+      "lte": 10.0,
+      "5g": 12.0
+    },
+    "p_state_W": {
+      "wifi": {
+        "IDLE": 0.03,
+        "CONNECTED": 0.18,
+        "TAIL": 0.08
+      },
+      "lte": {
+        "IDLE": 0.10,
+        "CONNECTED": 0.55,
+        "TAIL": 0.45
+      },
+      "5g": {
+        "IDLE": 0.12,
+        "CONNECTED": 0.70,
+        "TAIL": 0.60
+      }
+    },
+    "e_per_mb_J": {
+      "wifi": 1.2,
+      "lte": 2.6,
+      "5g": 2.9
+    },
+    "signal_psi": {
+      "good": 1.0,
+      "poor": 1.7
+    },
+    "throughput_MBps_by_activity": {
+      "idle": 0.0,
+      "browse": 0.0,
+      "video": 1.0,
+      "nav": 0.0,
+      "game": 0.0,
+      "voice": 0.02
+    },
+    "burst_rate_per_s_by_activity": {
+      "idle": 0.0,
+      "browse": 0.05,
+      "video": 0.0,
+      "nav": 0.03,
+      "game": 0.02,
+      "voice": 0.0
+    },
+    "burst_mb_by_activity": {
+      "idle": 0.0,
+      "browse": 2.0,
+      "video": 0.0,
+      "nav": 0.4,
+      "game": 0.2,
+      "voice": 0.0
+    },
+    "tail_gate": {
+      "enabled": true,
+      "tau_low_s": {
+        "wifi": 3.0,
+        "lte": 8.0,
+        "5g": 10.0
+      },
+      "tau_high_s": {
+        "wifi": 8.0,
+        "lte": 25.0,
+        "5g": 30.0
+      },
+      "u0": 0.45,
+      "delta_u": 0.12,
+      "omega_cpu": 0.45,
+      "omega_gpu": 0.25,
+      "d0_MBps": 1.0,
+      "tail_eps": 0.01
+    }
+  },
+  "background_poisson": {
+    "lambda_per_s": {
+      "low": 0.002,
+      "medium": 0.006,
+      "high": 0.02
+    },
+    "data_mb_per_wake": 0.03,
+    "cpu_wake_W": 1.0,
+    "cpu_wake_duration_s": 0.5
+  },
+  "screen_markov": {
+    "wake_brightness_nits": 150.0,
+    "off_to_on_rate_per_s_by_activity": {
+      "standby": 0.0006,
+      "call": 0.0003
+    },
+    "on_to_off_rate_per_s_by_activity": {
+      "standby": 0.05,
+      "call": 0.05
+    }
+  },
+  "signal_markov": {
+    "enabled_radio_modes": [
+      "lte",
+      "5g"
+    ],
+    "rates_by_base": {
+      "good": {
+        "good_to_poor": 0.001,
+        "poor_to_good": 0.02
+      },
+      "poor": {
+        "good_to_poor": 0.02,
+        "poor_to_good": 0.001
+      }
+    }
+  },
+  "interaction": {
+    "beta_screen_net_W": 0.15,
+    "beta_net_highcpu_W": 0.12,
+    "beta_screen_highcpu_W": 0.1,
+    "cpu_high_threshold": 0.7
+  },
+  "dvfs": {
+    "throttle_temp_C": 45.0,
+    "slope_per_C": 0.03,
+    "min_scale": 0.6,
+    "power_exponent": 2.2,
+    "backlog_enabled": true,
+    "backlog_tau_s": 30.0
+  }
+}
+

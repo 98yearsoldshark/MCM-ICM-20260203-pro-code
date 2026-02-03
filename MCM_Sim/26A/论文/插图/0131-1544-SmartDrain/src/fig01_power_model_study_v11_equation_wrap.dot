@@ -1,0 +1,71 @@
+digraph fig01_power_model_study_v11_equation_wrap {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="PingFang SC",
+    fontsize=12,
+    nodesep=0.22,
+    ranksep=0.35,
+    splines=true,
+    pad="0.10"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=12,
+    penwidth=1.1,
+    margin="0.10,0.06"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="PingFang SC",
+    fontsize=11
+  ];
+
+  // v11：学习版的“换行公式框”（适合宽度受限时，用更短的行宽换取少量高度）。
+
+  eq_device [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3" CELLPADDING="4">
+        <TR><TD ALIGN="LEFT"><B>设备功耗</B></TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <FONT POINT-SIZE="12">
+          <I>P</I><SUB>device</SUB>(t) = <I>P</I><SUB>base</SUB> + <I>P</I><SUB>screen</SUB>(t) + <I>P</I><SUB>cpu</SUB>(t)<BR ALIGN="LEFT"/>
+          + <I>P</I><SUB>gpu</SUB>(t) + <I>P</I><SUB>net</SUB>(t) + <I>P</I><SUB>gps</SUB>(t)<BR ALIGN="LEFT"/>
+          + <I>P</I><SUB>bg</SUB>(t) + <I>P</I><SUB>int</SUB>(t)
+          </FONT>
+        </TD></TR>
+      </TABLE>
+    >
+  ];
+
+  eq_batt [
+    fillcolor="#E0F2FE",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3" CELLPADDING="4">
+        <TR><TD ALIGN="LEFT"><B>电池端功率</B></TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <FONT POINT-SIZE="12">
+            <I>P</I><SUB>batt</SUB>(t) = <I>P</I><SUB>device</SUB>(t) / <I>&eta;</I><SUB>PMIC</SUB>
+          </FONT>
+        </TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <FONT POINT-SIZE="10">
+            <I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB>（常量，建议 0.90–0.95）
+          </FONT>
+        </TD></TR>
+      </TABLE>
+    >
+  ];
+
+  eq_device -> eq_batt;
+}
+

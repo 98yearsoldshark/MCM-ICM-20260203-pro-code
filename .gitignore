@@ -1,0 +1,40 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+.venv/
+mcm_temp/
+
+# 26A 运行时自动生成（不建议提交到 GitHub）
+MCM_Sim/26A/src/out_plots/
+MCM_Sim/26A/src/out_reports/
+MCM_Sim/26A/src/out_plots_back_paramest/
+MCM_Sim/26A/src/out_reports_back_paramest/
+
+# 26A 大体积可再下载数据（用 data/ 下的脚本复现）
+MCM_Sim/26A/data/calce-umd/raw/
+MCM_Sim/26A/data/calce-umd/extracted/
+MCM_Sim/26A/data/NASA-BatteryData/5.+Battery+Data+Set.zip
+MCM_Sim/26A/data/NASA-BatteryData/11.+Randomized+Battery+Usage+Data+Set/
+MCM_Sim/26A/data/NASA-BatteryData/11.+Randomized+Battery+Usage+Data+Set.zip
+MCM_Sim/26A/data/Battery-Intelligence-Lab/raw/
+MCM_Sim/26A/data/Battery-Intelligence-Lab/extracted/
+MCM_Sim/26A/data/Battery-Archive/raw/
+MCM_Sim/26A/data/Battery-Archive/extracted/
+
+# AndroWatts（Zenodo）内的大体积原始 trace / 复现实验 app（如需可用脚本重新拉取）
+MCM_Sim/26A/data/open_data/material/trace_parser/
+MCM_Sim/26A/data/open_data/material/application-android-conso-tel/
+
+# 派生主表（可由脚本重建，且单文件较大）
+MCM_Sim/26A/data/MCM2026_battery_state_table/MCM2026A题锂电池数据表：master_modeling_table.csv
+
+# 外部参考项目/素材（非主项目交付链路；体积大）
+MCM_Sim/26A/data/02-A_share/
+MCM_Sim/26A/data/03-A_style/
+
+# 压缩包/大文件（可选：准备 GitHub 时建议忽略）
+*.zip
+
+# MCM 2024A 仿真输出（运行时自动生成）
+MCM_Sim/24A/outputs/

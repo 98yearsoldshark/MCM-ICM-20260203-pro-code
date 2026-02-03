@@ -1,0 +1,6 @@
+scenario_id,n,screen_int_median,cpu_int_median,gpu_int_median,wifi_int_median,infra_int_median
+S4_gaming,93,0.6992,0.9092,0.9122000000000001,0.527,0.928
+S5_nav_call,33,0.6252,0.5904,0.6152,0.226,0.78
+S3_video_streaming,57,0.6488,0.48400000000000004,0.481,0.892,0.452
+S2_browse_social,88,0.64165,0.5146,0.5332000000000001,0.5974999999999999,0.53
+S1_standby_light,65,0.1775,0.28280000000000005,0.3348,0.331,0.282

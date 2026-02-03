@@ -1,0 +1,38 @@
+{
+  "phases": [
+    {
+      "name": "pre_repair",
+      "n_total": 4864499,
+      "n_up": 2967447,
+      "n_down": 1897052,
+      "n_edge_scuff": 305516,
+      "fraction": 0.5528334729607447
+    },
+    {
+      "name": "post_repair",
+      "n_total": 3934714,
+      "n_up": 2400258,
+      "n_down": 1534456,
+      "n_edge_scuff": 248026,
+      "fraction": 0.4471665270392553
+    }
+  ],
+  "repair": {
+    "enabled": true,
+    "fraction": 0.5528334729607447,
+    "x_range_m": [
+      0.0,
+      0.68
+    ],
+    "y_range_m": [
+      0.0,
+      0.5
+    ],
+    "reset_to_mm": 0.0
+  },
+  "traffic_total": {
+    "n_total": 8799213,
+    "n_up": 5367705,
+    "n_down": 3431508
+  }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="Description" content="A tool for easy analysis, visualization and comparison of cell battery data across many institutions">
+    <meta name="Keywords" content="battery chemistry, battery cell data, science, machine learning, data science, data publication, python, data service">
+    <title>BatteryArchive.org</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/replacer.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/fav/favicon-16x16.png">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35086283-2"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-35086283-2');
+    </script>
+
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Ranga', 'Julius Sans One', 'Montserrat']
+            }
+        });
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-md-3">
+        <a class="navbar-brand" href="index.html">BatteryArchive.org</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+	    <li class="nav-item">
+		        <a class="nav-link" href="cycle_list.html?t=0001">Cycling tests</a>
+	    </li>
+	    <li class="nav-item">
+		     <a class="nav-link" href="disruptive_list.html?t=0001">Disruptive tests</a>
+	    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="study_summaries.html">Studies</a>
+            </li>
+	    <li class="nav-item active">
+            <a class="nav-link" href="metadata.html">Metadata</a>
+            </li>
+	    <li class="nav-item">
+            <a class="nav-link" href="news.html">News</a>
+          </li>
+	  <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </li>
+	  <li class="nav-item">
+            <a class="nav-link" href="resources.html">Resources</a>
+          </li>
+          </ul>
+        </div>
+      </nav>
+
+    <body>
+
+    <div class="py-5 my-5 text-center text-lg-left">
+        <div class="pb-3" id="content-07">
+            <div class="container py-3 my-3">
+		    <h2 class="display-4 mb-3 ">Rules for Metadata</h2>
+
+                    <div class="row align-items-center justify-content-around py-3">
+                        <div class="col">
+				<p  class="text-justify">
+The nomenclature used to describe the cell and cycling conditions is evolving as we encounter more diverse use cases. The categorization below is based on the data we currently have available. Please let us know if you have feedback or additional data you’d like to share.
+				</p>
+
+				<p  class="text-justify">
+Cycling data broadly falls into two categories: (a) constant current square wave cycles and (b) application-specific duty cycles.
+				</p>
+				<p  class="text-justify">
+				(a) Constant current square wave cycles: a cell is charged and discharged in a particular state of charge or voltage range for the bulk of cycling. The full charge or discharge is carried out at a constant current.<br>
+(b) Application-specific duty cycles: a cell is charged and discharged with several different currents in a single repeating segment. This could be a named duty cycle, such as the Artemis urban drive cycle, or a general category of duty cycle, such as frequency regulation or peak shaving (for grid applications).
+				</p>
+				<p  class="text-justify">
+The Cell ID is structured as follows to give users quick insight into the study as they scroll through the database:
+				</p>
+				<p  class="text-justify">
+
+institution code_(original cell ID)_form factor_cathode_temperature_min-max SOC_charge rate/discharge rate_(letter)
+				</p>
+				<p  class="text-justify">
+
+*components in parentheses are optional, depending on the study
+				</p>
+				<p  class="text-justify">
+				Parts of the cell ID or metadata that relate to cycling conditions such as SOC and rates are based on the conditions for the bulk of cycling. The cycling conditions during reference performance tests or capacity checks are typically different. If available, more details on conditions during reference performance tests are provided in the <a href="study_summaries.html">Studies</a> page.
+				</p>
+				<p  class="text-justify">
+
+A breakdown of the Cell ID:
+</p>
+
+<p  class="text-justify">
+1) Institution Code: 3-4 letter abbreviation for the institution that generated the data
+<ul>
+	<li>Example: Hawaii Natural Energy Institute = HNEI</li>
+</ul>
+</p>
+
+<p  class="text-justify">
+2) Original Cell ID: this is an optional entry intended for cells that were previously assigned a cell ID in a public forum such as a publication or group website.
+<ul>
+	<li>Example: A cell in the CALCE group website was designated CS2-8 and here it was given the ID CALCE_CS2-8_prism_LCO_21C_0-100_0.5/0.5C_a</li>
+</ul>
+</p>
+
+<p  class="text-justify">
+3) Form factor: the form factor of the cell
+<ul>
+	<li>Example: 18650, pouch, prismatic</li>
+</ul>
+</p>
+
+<p  class="text-justify">
+4) Cathode: cathode chemistry
+<ul>
+	<li>Example: LCO, LFP, NCA, NMC</li>
+	<li>If available, the composition of the cathode is given in the <a href="study_summaries.html">Studies</a> page</li>
+</ul>
+</p>
+
+<p  class="text-justify">
+5) Temperature: the temperature of the environment in Celsius
+<ul>
+	<li>If available, cell-level temperatures are given in the downloadable data files</li>
+	<li>If a study noted that the cells were cycled at room temperature, then a value of 21 °C is assigned by default. The specific details of each study are given in the <a href="study_summaries.html">Studies</a> page.</li>
+</ul>
+</p>
+
+<p  class="text-justify">
+6) Min-Max SOC: the range of state of charge during cycling, given as a percent<br>
+<ul>
+	<li>There are many ways to define a state of charge range during cycling. Some studies use a capacity basis and some, a voltage basis. Some studies cycle cells according to conditions that were established at the ‘beginning of life’ and some adjust these conditions as a cell loses capacity. For simplicity of use, the ‘min-max SOC’ in the cell ID and database are based on the conditions at the beginning of life, regardless of whether it was based on capacity or voltage. For the details of how any particular study defined SOC range, please refer to the <a href="study_summaries.html">Studies</a> page and associated publication.</li>
+	<li>For both constant current square wave and application-specific duty cycles, ‘min-max SOC’ is given as the upper and lower bound at the beginning of cycling.</li>
+</ul>
+</p>
+
+<p  class="text-justify">
+7) Charge rate/Discharge rate: the C-rate applied during charge and discharge. A rate of 1C corresponds to the current that will discharge the full capacity of a battery in one hour.
+<ul>
+	<li> For constant current square wave cycles there is a single value for both charge and discharge C-rate. For example, 1/1C is 1C charge and 1C discharge.</li>
+	<li>For application-specific duty cycles, we use the average rate over the course of the cycle. For example, cells from the Howey group were charged at 2C and discharged according to the ARTEMIS urban drive cycle, which has an average rate of 1.84C. A representative cell was given the ID: OX_1-1_pouch_LCO_40C_0-100_2/1.84C_a.</li>
+	<li>For more details on how a particular study defined its duty cycle, refer to the <a href="study_summaries.html">Studies</a> page.</li>
+</ul>
+</p>
+
+<p  class="text-justify">
+8) Letter: if there were replicates, each cell is assigned a letter at the end of its ID
+</p>
+
+
+                        </div>
+                      </div>
+
+            </div>
+        </div>
+    </div>
+
+        
+ <p class="lead col text-center text-secondary">Based on <a href="https://github.com/battery-lcf" target=_blank>https://github.com/battery-lcf</a></p>
+        </div>
+        <script src="js/jquery-3.3.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/replacer.js"></script>
+    </body>
+</html>

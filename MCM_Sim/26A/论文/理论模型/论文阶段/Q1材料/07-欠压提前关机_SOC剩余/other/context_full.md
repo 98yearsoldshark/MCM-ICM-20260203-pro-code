@@ -1,0 +1,24 @@
+# 插入建议
+
+- 建议插入位置：`MCM_Sim/26A/论文/相关文本信息/no8/_0131-1507-论文.md` 的 **4.2.1 Discharge cut-off voltage setting** 段落中，在解释"手机按截止电压关机（而不是 SOC=0）"之后。
+- 用途：用"关机时剩余 SOC"把 **欠压提前关机** 现象定量化，支撑我们选择电压截止准则的合理性（Q1 核心）。
+
+# 可直接粘贴到论文的文本（中文）
+
+在真实手机中，关机通常由端电压跌破截止电压 \(V_{\mathrm{cut}}\) 触发，而不是由 \(\mathrm{SOC}=0\) 触发。由于端电压可近似表示为 \(\mathrm{OCV}(\mathrm{SOC})\) 减去内部压降（欧姆压降与极化压降），在大电流负载下即使电池仍有相当电量，也可能因内部压降增大而出现提前欠压。这正是用户感知的"突然掉电"现象的物理来源。
+
+（在此插入图 Q1-07）
+
+图 Q1-07：在相同截止电压 \(V_{\mathrm{cut}}=3.30\text{ V}\) 下，不同典型使用场景触发关机时仍可能剩余的 SOC。虚线为 Model-0 使用的最小 SOC 阈值；高于该虚线的差值量化了由欠压导致的"不可用电量"（并非真实耗尽）。
+
+该结果支持在 Model-1 中采用基于电压的停止准则，并解释了仅使用 SOC 阈值的模型为何会在高负载下系统性高估耗尽时间 TTE。
+
+# 可直接粘贴到论文的文本（英文）
+
+In real smartphones, shutdown is triggered by a cut-off terminal voltage \(V_{\mathrm{cut}}\) rather than by \(\mathrm{SOC}=0\). Because the terminal voltage equals \(\mathrm{OCV}(\mathrm{SOC})\) minus internal drops (ohmic drop and polarization), a high current draw can cause an early under-voltage event even when the battery still contains substantial charge. This explains the user-perceived "sudden battery drop" phenomenon.
+
+(Insert Figure Q1-07 here.)
+
+Figure Q1-07: Remaining SOC at shutdown under the same cut-off voltage \(V_{\mathrm{cut}}=3.30\text{ V}\) across representative usage scenarios. The dashed line indicates the minimum SOC threshold used by Model-0; the gap above this line quantifies "inaccessible charge" caused by under-voltage rather than true depletion.
+
+This result motivates a voltage-based stopping criterion in Model-1 and highlights why a purely SOC-threshold model can systematically overestimate time-to-empty (TTE) under heavy workloads.

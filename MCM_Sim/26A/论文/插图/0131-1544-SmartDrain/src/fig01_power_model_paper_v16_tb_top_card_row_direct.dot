@@ -1,0 +1,69 @@
+digraph fig01_power_model_paper_v16_tb_top_card_row_direct {
+  graph [
+    rankdir=TB,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.20,
+    ranksep=0.22,
+    splines=true,
+    pad="0.08"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.05,
+    margin="0.06,0.04"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // v16：进一步压缩：省略 PMIC 方框，用边标签表达“效率映射”，把下方控制在一行两节点。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="4">
+        <TR><TD COLSPAN="4" ALIGN="LEFT"><B>Components</B></TD></TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER"><I>P</I><SUB>base</SUB></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER"><I>P</I><SUB>screen</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>cpu</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><I>P</I><SUB>gpu</SUB>(t)</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>net</SUB>(t)</TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><I>P</I><SUB>gps</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>bg</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><I>P</I><SUB>int</SUB>(t)</TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  p_device [fillcolor="#E0E7FF", label=< <I>P</I><SUB>device</SUB>(t) >];
+  p_batt   [fillcolor="#E0F2FE", label=< <I>P</I><SUB>batt</SUB>(t) >];
+
+  { rank=same; p_device; p_batt; }
+
+  components -> p_device [label=< <FONT POINT-SIZE="10">&Sigma; (sum)</FONT> > fontcolor="#64748B"];
+  p_device -> p_batt [
+    label=<
+      <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT>
+      <FONT POINT-SIZE="9">&nbsp;(<I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB>)</FONT>
+    >
+    fontcolor="#64748B"
+  ];
+}
+

@@ -1,0 +1,16 @@
+{
+  "phases": [
+    {
+      "name": "single",
+      "n_total": 4870417,
+      "n_up": 2791621,
+      "n_down": 2078796,
+      "n_edge_scuff": 64052
+    }
+  ],
+  "traffic_total": {
+    "n_total": 4870417,
+    "n_up": 2791621,
+    "n_down": 2078796
+  }
+}

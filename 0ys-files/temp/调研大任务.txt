@@ -1,0 +1,30 @@
+│  ◻ 🔐 1password
+│  ◻ 📝 apple-notes
+│  ◻ ⏰ apple-reminders
+│  ◻ 🐻 bear-notes
+│  ◻ 🐦 bird
+│  ◻ 📰 blogwatcher
+│  ◻ 🫐 blucli (BluOS CLI (blu) for discovery, playback, grouping, and volume. — Install blucli (go))
+│  ◻ 📸 camsnap
+│  ◼ 🧩 clawdhub (Use the ClawdHub CLI to search, install, update, and publish agent skills from clawdhub.c…)
+│  ◻ 🎛️ eightctl
+│  ◻ ♊️ gemini
+│  ◻ 🧲 gifgrep
+│  ◻ 🎮 gog
+│  ◻ 📍 goplaces
+│  ◻ 📧 himalaya
+│  ◻ 📨 imsg
+│  ◼ 📦 mcporter (Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP …)
+│   ◻ 📄 nano-pdf
+│  ◻ 💎 obsidian
+│  ◻ 🎙️ openai-whisper
+│  ◻ 💡 openhue
+│  ◻ 🧿 oracle
+│  ◻ 🛵 ordercli
+│  ◻ 👀 peekaboo
+│  ◻ 🗣️ sag
+│  ◻ 🌊 songsee
+│  ◻ 🔊 sonoscli
+│  ◻ 🧾 summarize
+│  ◻ ✅ things-mac
+│  ◻ 📱 wacli (Send WhatsApp messages to other people or search/sync WhatsApp history via the wacli CLI …)

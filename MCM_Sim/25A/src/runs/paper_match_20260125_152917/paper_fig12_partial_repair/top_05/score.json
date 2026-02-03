@@ -1,0 +1,11 @@
+{
+  "trial": 79,
+  "target_id": "paper_fig12_partial_repair",
+  "target_desc": "论文 图12：部分翻新的台阶热力图",
+  "score": 0.7740647936476658,
+  "corr": 0.7841567630779569,
+  "center_dist": 0.02883419837226027,
+  "grad_mean_paper": 0.01865379452733546,
+  "grad_mean_sim": 0.005475206968858744,
+  "grad_ratio_sim_over_paper": 0.2935170622167688
+}

@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "schema_version": "2.0.0",
+    "notes_zh": "no7 升级版功耗参数（AndroWatts 对照校准版）。\n\n校准目标（对齐赛题 Q2 的“数据用于参数估计与验证”）：\n- 用 AndroWatts aggregated.csv 的观测总功耗量级（短时聚合）对功耗参数做“全局缩放校准”；\n- 保持机理结构不变（APL/超线性、big.LITTLE、连续尾态门控、DVFS-backlog 等仍保留），只调整可解释的功率系数。\n\n实现方式：\n- 基于 validate_q2_open_data.py 输出的 per_case.csv，对 (base/screen/cpu/gpu/radio/background/interaction) 做有界随机搜索+轻微正则，使观测总功耗 MAE/MAPE 显著下降。\n- 注意：该校准针对 AndroWatts 的设备/固件/实验条件；用于赛题时应在 UQ/敏感性里说明可迁移性与不确定性。\n\n多目标校准（自动生成）：同时拟合 AndroWatts 的 total+主要组件，并用 SmartphoneMeasurements 对 Wi‑Fi 的 J/MB 做软约束。\nscales={'base': 2.0421176087593618, 'screen': 1.1991882742949973, 'cpu': 0.891171798195795, 'gpu': 0.7245663407181209, 'radio_state': 2.4713200041906096, 'radio_data': 0.5000000000000001, 'background': 0.9174492983258633}\n"
+  },
+  "base_W": 0.31299931797066355,
+  "screen": {
+    "P0_W": 0.08591573377306064,
+    "k_W_per_nit": 0.0007159644481088384,
+    "ref_nits": 500.0,
+    "gamma_b": 1.15,
+    "k_apl_W": 0.17899111202720958,
+    "gamma_apl": 1.2
+  },
+  "cpu": {
+    "k_lit_W": 1.2312140218518999,
+    "k_big_W": 3.2832373916050663,
+    "gamma_lit": 1.3,
+    "gamma_big": 1.55,
+    "u_switch": 0.45
+  },
+  "gpu": {
+    "k_W": 0.3826525797590334,
+    "gamma": 1.15
+  },
+  "gps": {
+    "P_W": 0.2
+  },
+  "background_level_W": {
+    "low": 0.09929448267865768,
+    "medium": 0.20686350558053682,
+    "high": 0.3723543100449663
+  },
+  "rrc": {
+    "tau_tail_s": {
+      "wifi": 4.0,
+      "lte": 10.0,
+      "5g": 12.0
+    },
+    "p_state_W": {
+      "wifi": {
+        "IDLE": 0.03074818835109564,
+        "CONNECTED": 0.1844891301065739,
+        "TAIL": 0.08199516893625505
+      },
+      "lte": {
+        "IDLE": 0.10249396117031882,
+        "CONNECTED": 0.5637167864367535,
+        "TAIL": 0.4612228252664347
+      },
+      "5g": {
+        "IDLE": 0.12299275340438258,
+        "CONNECTED": 0.7174577281922319,
+        "TAIL": 0.614963767021913
+      }
+    },
+    "e_per_mb_J": {
+      "wifi": 0.24884020117958053,
+      "lte": 0.5391537692224244,
+      "5g": 0.6013638195173197
+    },
+    "signal_psi": {
+      "good": 1.0,
+      "poor": 1.7
+    },
+    "throughput_MBps_by_activity": {
+      "idle": 0.0,
+      "browse": 0.0,
+      "video": 1.0,
+      "nav": 0.0,
+      "game": 0.0,
+      "voice": 0.02
+    },
+    "burst_rate_per_s_by_activity": {
+      "idle": 0.0,
+      "browse": 0.05,
+      "video": 0.0,
+      "nav": 0.03,
+      "game": 0.02,
+      "voice": 0.0
+    },
+    "burst_mb_by_activity": {
+      "idle": 0.0,
+      "browse": 2.0,
+      "video": 0.0,
+      "nav": 0.4,
+      "game": 0.2,
+      "voice": 0.0
+    },
+    "tail_gate": {
+      "enabled": true,
+      "tau_low_s": {
+        "wifi": 3.0,
+        "lte": 8.0,
+        "5g": 10.0
+      },
+      "tau_high_s": {
+        "wifi": 8.0,
+        "lte": 25.0,
+        "5g": 30.0
+      },
+      "u0": 0.45,
+      "delta_u": 0.12,
+      "omega_cpu": 0.45,
+      "omega_gpu": 0.25,
+      "d0_MBps": 1.0,
+      "tail_eps": 0.01
+    }
+  },
+  "background_poisson": {
+    "lambda_per_s": {
+      "low": 0.002,
+      "medium": 0.006,
+      "high": 0.02
+    },
+    "data_mb_per_wake": 0.03,
+    "cpu_wake_W": 0.8274540223221473,
+    "cpu_wake_duration_s": 0.5
+  },
+  "screen_markov": {
+    "wake_brightness_nits": 150.0,
+    "off_to_on_rate_per_s_by_activity": {
+      "standby": 0.0006,
+      "call": 0.0003
+    },
+    "on_to_off_rate_per_s_by_activity": {
+      "standby": 0.05,
+      "call": 0.05
+    }
+  },
+  "signal_markov": {
+    "enabled_radio_modes": [
+      "lte",
+      "5g"
+    ],
+    "rates_by_base": {
+      "good": {
+        "good_to_poor": 0.001,
+        "poor_to_good": 0.02
+      },
+      "poor": {
+        "good_to_poor": 0.02,
+        "poor_to_good": 0.001
+      }
+    }
+  },
+  "interaction": {
+    "beta_screen_net_W": 0.13562011304039834,
+    "beta_net_highcpu_W": 0.10849609043231868,
+    "beta_screen_highcpu_W": 0.09041340869359897,
+    "cpu_high_threshold": 0.7
+  },
+  "dvfs": {
+    "throttle_temp_C": 45.0,
+    "slope_per_C": 0.03,
+    "min_scale": 0.6,
+    "power_exponent": 2.2,
+    "backlog_enabled": true,
+    "backlog_tau_s": 30.0
+  }
+}

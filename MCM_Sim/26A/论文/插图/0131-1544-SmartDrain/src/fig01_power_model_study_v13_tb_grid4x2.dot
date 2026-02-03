@@ -1,0 +1,67 @@
+digraph fig01_power_model_study_v13_tb_grid4x2 {
+  graph [
+    rankdir=TB,
+    bgcolor="transparent",
+    fontname="PingFang SC",
+    fontsize=12,
+    nodesep=0.25,
+    ranksep=0.25,
+    splines=true,
+    pad="0.08"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=12,
+    penwidth=1.05,
+    margin="0.06,0.04"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="PingFang SC",
+    fontsize=11
+  ];
+
+  // v13：学习版（TB 竖向流程 + 4×2 模块网格，降低高度、控制宽度）。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="4">
+        <TR><TD COLSPAN="4" ALIGN="LEFT"><B>功耗模块</B></TD></TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER">基础<BR/><I>P</I><SUB>base</SUB></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER">屏幕<BR/><I>P</I><SUB>screen</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">CPU<BR/><I>P</I><SUB>cpu</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">GPU<BR/><I>P</I><SUB>gpu</SUB>(t)</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">通信<BR/><I>P</I><SUB>net</SUB>(t)</TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">定位<BR/><I>P</I><SUB>gps</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">后台<BR/><I>P</I><SUB>bg</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">交互<BR/><I>P</I><SUB>int</SUB>(t)</TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  p_device [fillcolor="#E0E7FF", label=< <B>设备总功耗</B><BR/><I>P</I><SUB>device</SUB>(t) >];
+  p_batt   [fillcolor="#E0F2FE", label=< <B>电池端功率</B><BR/><I>P</I><SUB>batt</SUB>(t) >];
+
+  components -> p_device [label=< <FONT POINT-SIZE="10">求和</FONT> > fontcolor="#64748B"];
+  p_device -> p_batt [
+    label=<
+      <FONT POINT-SIZE="11">除以效率 <I>&eta;</I><SUB>PMIC</SUB></FONT>
+      <FONT POINT-SIZE="9">（<I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB>）</FONT>
+    >
+    fontcolor="#64748B"
+  ];
+}
+

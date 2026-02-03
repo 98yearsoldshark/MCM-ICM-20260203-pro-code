@@ -1,0 +1,68 @@
+digraph fig01_power_model_study_v19_tb_card_no_title {
+  graph [
+    rankdir=TB,
+    bgcolor="transparent",
+    fontname="PingFang SC",
+    fontsize=12,
+    nodesep=0.18,
+    ranksep=0.20,
+    splines=true,
+    pad="0.06"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="PingFang SC",
+    fontsize=12,
+    penwidth=1.0,
+    margin="0.05,0.03"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="PingFang SC",
+    fontsize=11
+  ];
+
+  // v19：学习版的“无标题紧凑卡片”。
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1" CELLPADDING="3">
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER">基础<BR/><I>P</I><SUB>base</SUB></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER">屏幕<BR/><I>P</I><SUB>screen</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">CPU<BR/><I>P</I><SUB>cpu</SUB>(t)</TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER">GPU<BR/><I>P</I><SUB>gpu</SUB>(t)</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">通信<BR/><I>P</I><SUB>net</SUB>(t)</TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER">定位<BR/><I>P</I><SUB>gps</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">后台<BR/><I>P</I><SUB>bg</SUB>(t)</TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER">交互<BR/><I>P</I><SUB>int</SUB>(t)</TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  p_device [fillcolor="#E0E7FF", label=< <B>设备总功耗</B><BR/><I>P</I><SUB>device</SUB>(t) >];
+  p_batt   [fillcolor="#E0F2FE", label=< <B>电池端功率</B><BR/><I>P</I><SUB>batt</SUB>(t) >];
+
+  { rank=same; p_device; p_batt; }
+
+  components -> p_device [label=< <FONT POINT-SIZE="10">求和</FONT> > fontcolor="#64748B"];
+  p_device -> p_batt [
+    label=<
+      <FONT POINT-SIZE="11">除以效率 <I>&eta;</I><SUB>PMIC</SUB></FONT>
+      <FONT POINT-SIZE="9">（<I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB>，建议 0.90–0.95）</FONT>
+    >
+    fontcolor="#64748B"
+  ];
+}
+

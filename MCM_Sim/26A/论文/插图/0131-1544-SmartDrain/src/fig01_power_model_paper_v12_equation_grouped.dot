@@ -1,0 +1,78 @@
+digraph fig01_power_model_paper_v12_equation_grouped {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.22,
+    ranksep=0.35,
+    splines=true,
+    pad="0.10"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.1,
+    margin="0.10,0.06"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // v12：分组等价展开（更短的主式，定义用小字说明，整体更“方”）。
+
+  eq_device [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3" CELLPADDING="4">
+        <TR><TD ALIGN="LEFT"><B>Device power (grouped)</B></TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <FONT POINT-SIZE="12">
+            <I>P</I><SUB>device</SUB>(t) =
+            <I>P</I><SUB>base</SUB> + <I>P</I><SUB>screen</SUB>(t) +
+            <I>P</I><SUB>comp</SUB>(t) + <I>P</I><SUB>radio</SUB>(t) + <I>P</I><SUB>user</SUB>(t)
+          </FONT>
+        </TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <FONT POINT-SIZE="10">
+            <I>P</I><SUB>comp</SUB>(t)=<I>P</I><SUB>cpu</SUB>(t)+<I>P</I><SUB>gpu</SUB>(t) &nbsp;&nbsp;
+            <I>P</I><SUB>radio</SUB>(t)=<I>P</I><SUB>net</SUB>(t)+<I>P</I><SUB>gps</SUB>(t) &nbsp;&nbsp;
+            <I>P</I><SUB>user</SUB>(t)=<I>P</I><SUB>bg</SUB>(t)+<I>P</I><SUB>int</SUB>(t)
+          </FONT>
+        </TD></TR>
+      </TABLE>
+    >
+  ];
+
+  eq_batt [
+    fillcolor="#E0F2FE",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3" CELLPADDING="4">
+        <TR><TD ALIGN="LEFT"><B>Battery-side power</B></TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <FONT POINT-SIZE="12">
+            <I>P</I><SUB>batt</SUB>(t) = <I>P</I><SUB>device</SUB>(t) / <I>&eta;</I><SUB>PMIC</SUB>
+          </FONT>
+        </TD></TR>
+        <TR><TD ALIGN="LEFT">
+          <FONT POINT-SIZE="10">
+            <I>&eta;</I><SUB>PMIC</SUB> = <I>&eta;</I><SUB>0</SUB>  (constant)
+          </FONT>
+        </TD></TR>
+      </TABLE>
+    >
+  ];
+
+  eq_device -> eq_batt;
+}
+

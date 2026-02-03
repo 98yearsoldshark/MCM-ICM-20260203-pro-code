@@ -1,0 +1,75 @@
+digraph fig01_power_model_paper_v10_compact_min {
+  graph [
+    rankdir=LR,
+    bgcolor="transparent",
+    fontname="Helvetica",
+    fontsize=12,
+    nodesep=0.18,
+    ranksep=0.32,
+    splines=true,
+    pad="0.08"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FFFFFF",
+    color="#334155",
+    fontname="Helvetica",
+    fontsize=12,
+    penwidth=1.0,
+    margin="0.06,0.04"
+  ];
+
+  edge [
+    color="#334155",
+    penwidth=1.0,
+    arrowsize=0.85,
+    fontname="Helvetica",
+    fontsize=11
+  ];
+
+  // v10：最紧凑的“结构图”版本（低高度 + 低宽度）
+  // - 去掉 Σ 节点、去掉 PMIC 方框、去掉额外注释框
+  // - 通过边标签表达“求和”和“除以效率”
+
+  components [
+    fillcolor="#F1F5F9",
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="3">
+        <TR>
+          <TD COLSPAN="2" ALIGN="LEFT"><FONT POINT-SIZE="12"><B>Components</B></FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#E2E8F0" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>base</SUB></FONT></TD>
+          <TD BGCOLOR="#DBEAFE" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>screen</SUB>(t)</FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>cpu</SUB>(t)</FONT></TD>
+          <TD BGCOLOR="#DCFCE7" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>gpu</SUB>(t)</FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>net</SUB>(t)</FONT></TD>
+          <TD BGCOLOR="#FFE4E6" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>gps</SUB>(t)</FONT></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>bg</SUB>(t)</FONT></TD>
+          <TD BGCOLOR="#FEF9C3" ALIGN="CENTER"><FONT POINT-SIZE="12"><I>P</I><SUB>int</SUB>(t)</FONT></TD>
+        </TR>
+      </TABLE>
+    >
+  ];
+
+  p_device [label=< <I>P</I><SUB>device</SUB>(t) >, fillcolor="#E0E7FF"];
+  p_batt   [label=< <I>P</I><SUB>batt</SUB>(t) >,   fillcolor="#E0F2FE"];
+
+  components -> p_device [label=< <FONT POINT-SIZE="10">&Sigma; (sum)</FONT> > fontcolor="#64748B"];
+  p_device -> p_batt [
+    label=<
+      <FONT POINT-SIZE="11">/ <I>&eta;</I><SUB>PMIC</SUB></FONT><BR/>
+      <FONT POINT-SIZE="9">(<I>&eta;</I><SUB>PMIC</SUB>=<I>&eta;</I><SUB>0</SUB>)</FONT>
+    >
+    fontcolor="#64748B"
+  ];
+}
+

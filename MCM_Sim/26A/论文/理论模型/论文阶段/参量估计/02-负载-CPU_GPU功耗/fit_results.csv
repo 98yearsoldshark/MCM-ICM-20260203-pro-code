@@ -1,0 +1,5 @@
+component,model,equation,n,k_W,r2,rmse_W,load_proxy,power_cols,data_source,gamma
+CPU,linear_through_origin,P = k * load,1000,2.889355522430016,0.594231786114878,0.43980699160383524,"CPU freq proxy (0.60*big+0.30*mid+0.10*little, normalized)",CPU_BIG_ENERGY_AVG_UWS+CPU_MID_ENERGY_AVG_UWS+CPU_LITTLE_ENERGY_AVG_UWS+S9M_VDD_CPUCL0_M_ENERGY_AVG_UWS+TPU_ENERGY_AVG_UWS,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,
+GPU,linear_through_origin,P = k * load,1000,0.37218674518450034,0.8956217124524614,0.03023391296716181,"GPU freq proxy (max(gpu0,gpu1), normalized)",GPU3D_ENERGY_AVG_UWS+GPU_ENERGY_AVG_UWS,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,
+CPU,powerlaw_diagnostic,P = k * load^gamma,1000,5.043035635648627,0.7755726233916955,0.3270853056746029,,,,1.7951056479471408
+GPU,powerlaw_diagnostic,P = k * load^gamma,1000,0.4305022045684041,0.9558667401997505,0.01965949139907382,,,,1.5011275016240004

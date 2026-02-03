@@ -1,0 +1,12 @@
+parameter_key,symbol,value,unit,source_fit,data_source,notes
+power.screen.P0_W,"P0,screen",0.1461994687300714,W,01-亮度-屏幕功耗/fit_results.csv (linear_brightness),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,Model-0/1 屏幕亮度项截距（屏幕点亮时的基准功耗）
+power.screen.k_W_per_nit,k_screen,0.0007618856985895,W/nit,01-亮度-屏幕功耗/fit_results.csv (linear_brightness),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,Model-0/1 屏幕亮度线性系数（nits->W）
+power.cpu.k_W,k_cpu,2.889355522430016,W,02-负载-CPU_GPU功耗/fit_results.csv (CPU linear_through_origin),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,CPU 负载功耗系数（P=k*load）
+power.gpu.k_W,k_gpu,0.3721867451845003,W,02-负载-CPU_GPU功耗/fit_results.csv (GPU linear_through_origin),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,GPU 负载功耗系数（P=k*load）
+power.rrc.p_idle_W (wifi),"P_idle,wifi",0.1952079790481527,W,03-网络回落曲线/fit_results.csv (energy_balance_with_tail),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,"Wi-Fi 维持功耗（能量守恒估计）（交叉验证：功率回归得到 P_idle≈0.194W, e≈0.192J/MB）"
+power.rrc.e_per_mb_J (wifi),e_wifi,0.1504477893744842,J/MB,03-网络回落曲线/fit_results.csv (energy_balance_with_tail),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,"Wi-Fi 每 MB 传输能耗（能量守恒估计）（交叉验证：功率回归得到 P_idle≈0.194W, e≈0.192J/MB）"
+power.rrc.E_tail_J (wifi),E_tail,0.1821165587022375,J,03-网络回落曲线/fit_results.csv (energy_balance_with_tail),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,尾态/连接维护等常量能量开销（用于解释短时测试的平均功耗抬升）
+power.rrc.tau_tail_s (wifi),tau_tail,18.99079277253595,s,03-网络回落曲线/fit_results.csv (energy_balance_with_tail),MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,网络尾态等效时间常数：τ=E_tail/(P_conn-P_idle)
+battery.thermal.R_th_K_per_W,R_th,0.6720708248702825,K/W,05-温度-时间曲线/fit_results.csv,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,由温升反推（需假设 eta_device_heat）；用于 Model-2 集总热模型
+battery.thermal.C_th_J_per_K,C_th,18.831408031002,J/K,05-温度-时间曲线/fit_results.csv,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,由 τ=R_th*C_th 得到；用于 Model-2 集总热模型
+battery.thermal.tau_s,tau,12.656039928864375,s,05-温度-时间曲线/fit_results.csv,MCM_Sim/26A/data/open_data/material/res_test/aggregated.csv,热时间常数（直接拟合得到）

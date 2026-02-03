@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="Description" content="A tool for easy analysis, visualization and comparison of cell battery data across many institutions">
+    <meta name="Keywords" content="battery chemistry, battery cell data, science, machine learning, data science, data publication, python, data service">
+    <title>BatteryArchive.org</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/replacer.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/fav/favicon-16x16.png">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35086283-2"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-35086283-2');
+    </script>
+
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Ranga', 'Julius Sans One', 'Montserrat']
+            }
+        });
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-md-3">
+        <a class="navbar-brand" href="index.html">BatteryArchive.org</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+	    <li class="nav-item">
+		     <a class="nav-link" href="cycle_list.html?t=0001">Cycling tests</a>
+	    </li>
+	    <li class="nav-item">
+		     <a class="nav-link" href="disruptive_list.html?t=0001">Disruptive tests</a>
+	    </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="study_summaries.html">Studies</a>
+            </li>
+	    <li class="nav-item">
+            <a class="nav-link" href="metadata.html">Metadata</a>
+          </li>
+	    <li class="nav-item">
+            <a class="nav-link" href="news.html">News</a>
+          </li>
+	  <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </li>
+	  <li class="nav-item">
+            <a class="nav-link" href="resources.html">Resources</a>
+          </li>
+          </ul>
+        </div>
+      </nav>
+
+    <body>
+
+    <div class="py-5 my-5 text-center text-lg-left">
+        <div class="pb-3" id="content-07">
+            <div class="container py-3 my-3">
+                    <h2 class="display-4 mb-3 ">Studies</h2>
+
+                    <div class="row align-items-center justify-content-around py-3">
+                        <div class="col">
+			    <p class="text-justify">
+			    We launched Battery Archive to provide battery data and metadata in a standard format that simplifies data comparison. The data shared on this site has been uploaded with permission from the institution that generated it. The data is converted to a standard format at upload, and typical statistical quantities are calculated if they were missing from the original dataset. We encourage the following code of conduct for the use of the data and site.
+<ul>
+	<li>Use of any data featured on this site for publication purposes should include references to the article that describes the experiments conducted for generating the data. </li>
+	<li>Individual groups may have additional guidelines for the use of their data. In such cases, we link to the group’s website for these policies.</li>
+	<li>Please cite www.batteryarchive.org as the source from where the data was downloaded.</li>
+	<li>Send us a reference to work that uses the data, and we will add it to our publication list.</li>
+</ul>
+
+			    </p>
+                            <h3>Center for Advanced Life Cycle Engineering (CALCE)</h3>
+                            <p class="text-justify">
+			    CALCE has collected data on multiple cells. For the full details of these studies, the associated publications, and policies for data reuse, please refer to their <a href="https://web.calce.umd.edu/batteries/data.htm" target=_blank>website</a>. 
+                            </p>
+                            <h3>Hawaii Natural Energy Institute (HNEI)</h3>
+                            <p class="text-justify">
+			    The dataset from HNEI used in the publication "<a href="https://www.mdpi.com/1996-1073/11/5/1031" target=_blank>Intrinsic Variability in the Degradation of a Batch of Commercial 18650 Lithium-Ion Cells</a>" consists of commercial 18650 cells with a graphite negative electrode and a blended positive electrode composed of NMC and LCO. The cell was cycled at 1.5C to 100% DOD for more than 1000 cycles at room temperature. This study examines the influence of intrinsic cell-to-cell variations on aging.
+                            </p>
+
+                          <h3>Iowa State University – Iowa Lakes Community College (ISU-ILCC)</h3>
+                          <p class="text-justify">
+        The dataset used in the publication "<a href=" https://doi.org/10.48550/arXiv.2307.08382" target=_blank>Predicting Battery Lifetime Under Varying Usage Conditions from Early Aging Data</a>" consists of 238 commercial 502030 pouch cells with a graphite negative electrode and an NMC positive electrode. The cells were cycled at 30 °C at 63 different conditions with varying charge C-rate, discharge C-rate, and depth of discharge. For the full details of the study and policies for data reuse, please refer to <a href=" https://doi.org/10.25380/iastate.22582234" target=_blank>their website.</a>
+                          </p>
+
+                            <h3>Oak Ridge National Laboratory (ORNL)</h3>
+                            <p class="text-justify">
+The dataset from Oak Ridge National Lab used in the publication "<a href=" https://www.sciencedirect.com/science/article/pii/S2352152X23001950" target=_blank>Mechanically induced thermal runaway severity analysis for Li-ion batteries</a>" consists of 54 pouch cells with various cathode chemistries (NMC, LCO, LFP, NMC-LMO, LMO-LNO) and states of charge (0 to 100%). The cells were subject to indentation tests powered by a servo motor. Some cells experienced thermal runaway and some did not. For the full details of the study and policies for data reuse, please refer to their <a href="https://data.mendeley.com/datasets/sn2kv34r4h/" target=_blank>website</a>.
+                            
+</p>
+                            <h3>Oxford University (OX)</h3>
+                            <p class="text-justify">
+			    The small LCO pouch cells in Oxford Battery Degradation Dataset 1 were all tested in a thermal chamber at 40 °C. The cells were exposed to a constant-current-constant-voltage charging profile, followed by a drive cycle discharging profile that was obtained from the urban Artemis profile. Characterization measurements were taken every 100 cycles. For the full details of this study, the associated publications, and policies for data reuse, please refer to their <a href="https://ora.ox.ac.uk/objects/uuid:03ba4b01-cfed-46d3-9b1a-7d4a7bdf6fac" target=_blank>website</a>. 
+                            </p>
+                            <h3>Sandia National Laboratories (SNL)</h3>
+                            <p class="text-justify">
+			    The dataset from Sandia National Labs used in the publication “<a href="https://iopscience.iop.org/article/10.1149/1945-7111/abae37" target=_blank>Degradation of Commercial Lithium-ion Cells as a Function of Chemistry and Cycling Conditions</a>” consists of commercial 18650 NCA, NMC, and LFP cells cycled to 80% capacity (although cycling is still ongoing). This study examines the influence of temperature, depth of discharge (DOD), and discharge current on the long-term degradation of the commercial cells. Each round of cycling consisted of a capacity check, some number of cycles at the designated conditions for that cell, and another capacity check at the end. The capacity check consisted of three charge/discharge cycles from 0-100% SOC at 0.5C.
+        </p>
+        <p class="text-justify">
+          The dataset from Sandia National Labs used in the publication "<a href=" https://www.sciencedirect.com/science/article/pii/S2352152X23001950" target=_blank>Mechanically induced thermal runaway severity analysis for Li-ion batteries</a>" consists of 55 pouch cells with various cathode chemistries (NMC-LMO, LMO-LNO, NMC, LFP, and LCO) and states of charge (0 to 100% SOC). The cells were subject to indentation tests with a hydraulic press.  Some cells experienced thermal runaway and some did not. For the full details of the study and policies for data reuse, please refer to their <a href="https://data.mendeley.com/datasets/sn2kv34r4h/" target=_blank>website</a>.
+                                      
+          </p>
+        <h3>Underwriters Laboratories Inc. – Purdue University (UL-PUR)</h3>
+                          <p class="text-justify">
+        The dataset used in the publication "<a href="https://iopscience.iop.org/article/10.1149/1945-7111/abc8c0/meta" target=_blank>Degradation-Safety Analytics in Lithium-Ion Cells: Part I. Aging Under Charge/Discharge Cycling</a>" consists of 21 commercial 18650 cells with a graphite negative electrode and an NCA positive electrode. The cells were cycled at 0.5C at 2.7-4.2V (0-100% SOC) or 2.9-4.0V (2.5-96.5% SOC, when the cells are fresh) at room temperature to various levels of capacity fade (10%, 15% and 20%). For the full details of the study and policies for data reuse, please refer to their website</a>.
+        </p><p class="text-justify">The dataset used in the publication “<a href="https://iopscience.iop.org/article/10.1149/1945-7111/ac30af/meta" target=_blank>Degradation-Safety Analytics in Lithium-Ion Cells and Modules: Part III. Aging and Safety of Pouch Format Cells</a>” consists of 14 commercial pouch cells with a graphite negative electrode and an NCA positive electrode. The cells were cycled at 1C at 2.7-4.2V (0-100% SOC) at room temperature to various levels of capacity fade (10-20%). For the full details of the study and policies for data reuse, please refer to their website</a>. Data from module cycling is also available</a>. The modules were cycled at C/2 at 13.7-21.0V (0-100% SOC) at room temperature to 20% capacity fade.
+        </p>
+        <h3>University of Michigan (MICH)</h3>
+        <p class="text-justify">
+        The dataset used in the publication “<a href="https://iopscience.iop.org/article/10.1149/1945-7111/ac2d3e" target=_blank>Reversible and Irreversible Expansion of Lithium-Ion Batteries Under a Wide Range of Stress Factors</a>” consists of 31 cells made at the University of Michigan Battery Lab with a graphite negative electrode and an NMC111 positive electrode. The cells were cycled at various temperatures, depths of discharge, charge rates, and discharge rates. This study from the University of Michigan Battery Control Group examines the capability of aging diagnostics using cell expansion under a variety of aging conditions and states. For the full details of the study and policies for data reuse, please refer to <a href="https://deepblue.lib.umich.edu/data/concern/data_sets/5d86p0488" target=_blank>their website</a>. 
+        </p>
+        <p class="text-justify">The dataset used in the publication “<a href="https://doi.org/10.1016/j.joule.2021.09.015" target=_blank>Predicting the impact of formation protocols on battery lifetime immediately after manufacturing</a>” consists of 40 cells made at the University of Michigan Battery Lab with a graphite negative electrode and an NMC positive electrode. Half of the cells underwent fast formation and the remaining cells underwent baseline formation. The cells were cycled at room temperature or 45 °C under identical protocols: 1C charge to 4.2 V with a constant voltage hold to 10 mA and 1C discharge to 3.0 V. For the full details of the study and policies for data reuse, please refer to <a href="https://deepblue.lib.umich.edu/data/concern/data_sets/b2773w109">their website</a>.                    
+        </p>
+                        </div>
+                      </div>
+
+            </div>
+        </div>
+    </div>
+
+        
+ <p class="lead col text-center text-secondary">Based on <a href="https://github.com/battery-lcf" target=_blank>https://github.com/battery-lcf</a></p>
+        </div>
+        <script src="js/jquery-3.3.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/replacer.js"></script>
+    </body>
+</html>
